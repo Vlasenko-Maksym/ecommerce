@@ -15,7 +15,9 @@ a{
 }
 
 body{
-	font-family: sans-serif, Verdana, Tahoma;
+  font-family: "Poiret one";
+  font-size: 25px;
+  font-weight: bold;
 }
 
 /* Body */
@@ -84,4 +86,102 @@ body{
     margin-top: 0.5em;
     margin-left: 0.5em;
 }
+/*MENU DE NAVEGACION  ---------*/
+.barra{
+  position: fixed;
+  background-color: #fff;
+  width: 100%;
+  display:inline-flex;
+  justify-content:space-between;
+  flex-direction:row;
+  border-bottom:solid 1px #DEDEDE;
+  height: 40px;
 }
+/*menu*/
+.barra nav{
+  width:33.3%;
+}
+.navm {
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  margin: 0;
+  text-align: left;
+}
+.navm li a{
+  text-decoration: none;
+  /*color: black;*/
+}
+/*submenus*/
+.linkm{
+  display: flex;
+  flex-direction: column;
+  width: 30%;
+}
+.linkm a{
+  color: rgba(0, 0, 0, 0.6);
+}
+.submenu {
+				display:none;
+        padding:0;
+        margin:0;
+			}
+.linkm:hover > ul {
+      				display:block;
+              background-color: rgba(255,255,255, 0.5);
+}
+.subelemento{
+    padding: 15px 0;
+}
+.subelemento a:hover{
+  font-weight: bold;
+  color: #D74B4B;
+}
+.subelemento a{
+  padding-left:8px;
+  font-size: 20px;
+  font-weight: normal;
+  color: rgb(0, 0, 0);
+}
+.primersub{
+  padding-top: 35px;
+}
+.submenu{
+  list-style: none;
+}
+/*submenus fin*/
+/*menu fin*/
+/*contenedor logo*/
+.contenedor-logo{
+  width:33.3%;
+  text-align: center;
+  font-size: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.contenedor-logo a{
+  text-decoration: none;
+  color: black;
+}
+.contenedor-logo a img{
+    width: 30px;
+    margin: 0px 15px;
+}
+/*contenedor logo fin*/
+/*contendor login*/
+.contenedor-login{
+  width: 33.3%;
+  text-align: right;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.blogin{
+  margin-right:35px;
+}
+/*fin contendor login*/
+/*barra fin*/
+
+/* FIN MENU DE NAVEGACION*/
