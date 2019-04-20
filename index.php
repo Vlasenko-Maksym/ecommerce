@@ -2,10 +2,11 @@
 <html lang="en" dir="ltr">
   <?php require_once("head.php") ?>
   <body>
+    <section>
+        <?php include "barramenu.php";?>
+    </section>
     <div class="main-container">
-      <section>
-<?php include "barramenu.php";?>
-      </section>
+
 
 
       <section class="main-banner">
