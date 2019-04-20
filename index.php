@@ -4,9 +4,10 @@
   <body>
     <div class="main-container">
       <section>
-        <!-- Nav -->
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. .</p>
+<?php include "barramenu.php";?>
       </section>
+
+
       <section class="main-banner">
         <!-- banner 1 -->
         <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
