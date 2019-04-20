@@ -1,3 +1,5 @@
+/*  Resets generales */
+
 *{
   box-sizing: border-box;
 }
@@ -15,6 +17,71 @@ a{
 body{
 	font-family: sans-serif, Verdana, Tahoma;
 }
+
+/* Body */
 .main-banner{
-  margin-top: em;
+  height: auto;
+  max-width: 100%;
+  margin-top:1em;
+  width:100%;
+}
+.accionables-container{
+  display: flex;
+  background-color: rgba(0, 0, 0, 0.1);
+  flex-direction: column;
+  justify-content: space-around;
+  text-align: center;
+}
+.col1{
+  flex-direction: column;
+}
+.link{
+  margin: 1em;
+}
+.prod1{
+}
+.prod2{
+}
+.art1{
+}
+.art2{
+}
+
+@media (min-width: 992px){
+  .main-container{
+    width: 90%;
+    margin: 0 auto;
+  }
+  .main-banner{
+    margin-top:3em;
+  }
+.accionables-container{
+  display: flex;
+  flex-flow: wrap row;
+  align-content:flex-start;
+}
+.col1{
+  display: flex;
+  flex-flow: wrap row;
+  width: 50%;
+}
+.col2{
+  width: 50%;
+}
+.link.prod1{
+  margin-bottom: 0.5em;
+  margin-right: 0.5em;
+}
+.link.prod2{
+  margin-bottom: 0.5em;
+  margin-left: 0.5em;
+}
+.link.art1{
+    margin-top: 0.5em;
+    margin-right: 0.5em;
+}
+.link.art2{
+    margin-top: 0.5em;
+    margin-left: 0.5em;
+}
 }

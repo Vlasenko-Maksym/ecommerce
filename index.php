@@ -4,6 +4,7 @@
   <body>
     <div class="main-container">
       <section>
+        <!-- Nav -->
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. .</p>
       </section>
       <section class="main-banner">
@@ -30,12 +31,59 @@
           </a>
         </div>
       </section>
-      <section>
+      <section class="accionables-container">
         <!-- links y arituclos de productos  -->
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+        <article class="col1">
+          <div class="link prod1">
+            <a href="#">
+              <img src="imagenes/accionables/iwcman.jpg" alt="">
+            </a>
+          </div>
+          <div class="link prod2">
+            <a href="#">
+              <img src="imagenes/accionables/omegamujer.jpg" alt="">
+            </a>
+          </div>
+          <div class="link art1">
+            <a href="#">
+              <img src="imagenes/accionables/relojpatek.jpg" alt="">
+            </a>
+          </div>
+          <div class="link art2">
+            <a href="#">
+              <img src="imagenes/accionables/rolexmen.jpg" alt="">
+            </a>
+          </div>
+        </article>
+        <article class="col2">
+          <a href="#">
+            <img class="relojpromo" src="imagenes/accionables/applewatch.jpg" alt="">
+          </a>
+        </article>
       </section>
       <section>
         <!-- banner 2  -->
+        <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <img src="imagenes/rolexbanner4.jpg" class="d-block w-100" alt="...">
+            </div>
+            <div class="carousel-item">
+              <img src="imagenes/iwc_banner2.jpg" class="d-block w-100" alt="...">
+            </div>
+            <div class="carousel-item">
+              <img src="imagenes/iwc_banner_3.jpg" class="d-block w-100" alt="...">
+            </div>
+          </div>
+          <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+          </a>
+          <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+          </a>
+        </div>
       </section>
       <section>
         <!-- footer -->
