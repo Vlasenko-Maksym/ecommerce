@@ -6,9 +6,6 @@
         <?php include "barramenu.php";?>
     </section>
     <div class="main-container">
-
-
-
       <section class="main-banner">
         <!-- banner 1 -->
         <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
@@ -33,35 +30,37 @@
           </a>
         </div>
       </section>
-      <section class="accionables-container">
+      <section class="accionables-container container">
         <!-- links y arituclos de productos  -->
-        <article class="col1">
-          <div class="link prod1">
-            <a href="#">
-              <img src="imagenes/accionables/iwcman.jpg" alt="">
-            </a>
-          </div>
-          <div class="link prod2">
-            <a href="#">
-              <img src="imagenes/accionables/omegamujer.jpg" alt="">
-            </a>
-          </div>
-          <div class="link art1">
-            <a href="#">
-              <img src="imagenes/accionables/relojpatek.jpg" alt="">
-            </a>
-          </div>
-          <div class="link art2">
-            <a href="#">
-              <img src="imagenes/accionables/rolexmen.jpg" alt="">
-            </a>
-          </div>
-        </article>
-        <article class="col2">
+          <div class="row">
+            <div class="col1 col-sm">
+              <div class="link prod1">
+                <a href="#">
+                  <img class="destacado" src="imagenes/accionables/iwcman.jpg" alt="">
+                </a>
+              </div>
+              <div class="link prod2">
+                <a href="#">
+                  <img class="destacado" src="imagenes/accionables/omegamujer.jpg" alt="">
+                </a>
+              </div>
+              <div class="link art1">
+                <a href="#">
+                  <img class="destacado" src="imagenes/accionables/relojpatek.jpg" alt="">
+                </a>
+              </div>
+              <div class="link art2">
+                <a href="#">
+                  <img class="destacado" src="imagenes/accionables/rolexmen.jpg" alt="">
+                </a>
+              </div>
+          </div> <!-- fin div col1-->
+          <div class="col2 col-sm">
           <a href="#">
             <img class="relojpromo" src="imagenes/accionables/applewatch.jpg" alt="">
           </a>
-        </article>
+        </div> <!-- fin div col2-->
+        </div> <!-- fin div row-->
       </section>
       <section>
         <!-- banner 2  -->
@@ -88,9 +87,9 @@
         </div>
       </section>
       <section>
-        <!-- footer -->
+        <!-- Footer  -->
+        <?php include ("footer.php") ?>
       </section>
-
     </div>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
