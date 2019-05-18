@@ -1,0 +1,20 @@
+{
+    "usuarios": [
+        {
+            "id": 1,
+            "nombre": "juan",
+            "genero": "masc",
+            "email": "juan.gp7@hotmail.com",
+            "pass": "$2y$10$TttI.751t\/gvxLjqqrp.6eYPoXLukt.0GOb848IGCQRRMqcbFol3u",
+            "avatar": "ruta de la imagen o nombre del archivo"
+        },
+        {
+            "id": 2,
+            "nombre": "Pablo",
+            "genero": "masc",
+            "email": "moricz_2002@hotmail.com",
+            "pass": "$2y$10$MoDpk\/r0.gz5ytATyLz6DOG\/CPqLm56mSxK9IbsVnNBvPRkxt2KSq",
+            "avatar": "ruta de la imagen o nombre del archivo"
+        }
+    ]
+}

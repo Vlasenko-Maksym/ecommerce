@@ -109,13 +109,14 @@ h6{
     align-items: center;
   }
 }
-/*BOTONES DEL MENU*/
+@media (min-width: 992px){
 .marcas{order: 1;}
 .logo{order: 2;
 width: 100%;}
 .registro{order:3;
 width: 100%;}
 .mycollapse{order:4;}
+}
 
 /*CIERRE DE BOTONES DEL MENU*/
 /*MENU DE NAVEGACION  ---------*/
@@ -216,6 +217,13 @@ justify-content: center;
   background-size: 100% 2px;
 }
 /* REGISTRO DEL MENU DE NAVEGACION */
+.conterrores{
+  color: red;
+} /*color de los errores*/
+.containerm{
+  background-color: white;
+}
+
 .fourm-group .form-control{
     display: flex;
     margin: 8px;
@@ -231,7 +239,7 @@ justify-content: center;
 .login{
     display: flex;
     height: 100vh;
-    align-items: center;
+    /*align-items: center;*/
 }
 .button-container{
     justify-content: center;
@@ -240,7 +248,7 @@ justify-content: center;
 .button-container div{
     margin-top: 25px;
 }
-.container .colRegistro {
+.containerm .colRegistro {
     text-align: center;
     padding-right: 80px;
     padding-left: 80px;
@@ -263,6 +271,15 @@ justify-content: center;
 #emailLogin.form-control:focus {
     border-color: #f2ac5d;
     box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(61, 60, 60, 0.6);
+}
+.usercard{
+  text-align: center;
+}
+.imguserlog{
+  width: 200px;
+}
+.logouticon img{
+  margin: 0px;
 }
 
 /*SOCIAL BUTTONS*/
