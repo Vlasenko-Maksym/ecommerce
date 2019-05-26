@@ -2,18 +2,24 @@
 include("funciones.php");
 $errores1 = [];
 $errores2 = [];
+$nombreOk = "";
+$emailOk ="";
 //identifica de que formulario viene
 
 if ($_POST && $_POST["form"]=="form1"){
   if($_POST){
     //Validar Login
     $errores1 = validarLogin($_POST);
+    $nombreOk = trim($_POST["nombre"]);
+    $emailOk = trim($_POST["email"]);
     if(empty($errores1)){
       loguearUsuario($_POST["email"]);
     }
   }
 }else if($_POST && $_POST["form"]=="form2"){
   $errores2= validarRegistro($_POST);
+  $nombreOk = trim($_POST["nombre"]);
+  $emailOk = trim($_POST["email"]);
   if (empty($errores2)) {
     $usuario= armarUsuario();
     guardarUsuario($usuario);

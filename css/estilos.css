@@ -109,7 +109,7 @@ h6{
     align-items: center;
   }
 }
-@media (min-width: 992px){
+@media (min-width: 767px){
 .marcas{order: 1;}
 .logo{order: 2;
 width: 100%;}
@@ -118,32 +118,27 @@ width: 100%;}
 .mycollapse{order:4;}
 }
 
-/*CIERRE DE BOTONES DEL MENU*/
+
 /*MENU DE NAVEGACION  ---------*/
-/*.menu a{
-  color: #000000;
-}
-.menu a:hover{
-  color: #D74B4B;
-  text-decoration: none;
-  font-weight: bold;
-}*/
+
 .menu{font-weight: normal;
   position: fixed;
   top: 0;
   z-index: 500;}
 
-.menu a{
-  color: black;
-  text-decoration: none;
+.menuLink{
+ color: black;
+ text-decoration: none;
  background-image: linear-gradient(#e43f3f, #e43f3f);
  background-position: 0% 100%;
  background-repeat: no-repeat;
  background-size: 0% 1px;
  transition: background-size .7s;
 }
-.menu a:hover{
+.menuLink:hover{
     background-size: 100% 2px;
+    color: black;
+    text-decoration: none;
 }
 
 .marcas{
@@ -184,10 +179,7 @@ justify-content: center;
   align-items: center;
   width: 50%;
 }
-.registro img{
-  width: 25px;
-  margin-left: 15px;
-}
+
 .mycollapse{
   width: 100%;
   border-bottom:1px solid #e43f3f;
@@ -216,7 +208,42 @@ justify-content: center;
 .vertodas:hover{
   background-size: 100% 2px;
 }
+
+.menuMobile{
+  position: fixed;
+  bottom: 0px;
+  z-index: 800;
+  width: 100%;
+
+}
+.contMeMo{
+  display: flex;
+  justify-content:space-around;
+}
+.btnMeMo{
+  width: 50px;
+}
+
+@media(max-width:767px) {
+.logo{display: none;}
+.marcas{display: none;}
+.registro{display: none;}
+}
+@media(min-width:767px) {
+.menuMobile{display: none;}
+
+}
+
+
+
+
+
+
 /* REGISTRO DEL MENU DE NAVEGACION */
+
+
+
+
 .conterrores{
   color: red;
 } /*color de los errores*/
@@ -275,11 +302,16 @@ justify-content: center;
 .usercard{
   text-align: center;
 }
+.usercard2{
+  text-align: justify;
+}
 .imguserlog{
   width: 200px;
 }
-.logouticon img{
-  margin: 0px;
+
+.btnMeDesk{
+  margin: 0px 0px 0px 15px;
+  width:40px;
 }
 
 /*SOCIAL BUTTONS*/
