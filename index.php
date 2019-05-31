@@ -1,5 +1,7 @@
 <?php
+include("pdo.php");
 include("funciones.php");
+
 $errores1 = [];
 $errores2 = [];
 $nombreOk = "";
@@ -10,7 +12,6 @@ if ($_POST && $_POST["form"]=="form1"){
   if($_POST){
     //Validar Login
     $errores1 = validarLogin($_POST);
-    $nombreOk = trim($_POST["nombre"]);
     $emailOk = trim($_POST["email"]);
     if(empty($errores1)){
       loguearUsuario($_POST["email"]);
