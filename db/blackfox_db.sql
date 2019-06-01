@@ -167,10 +167,10 @@ CREATE TABLE `usuario` (
   `nombre` varchar(50) NOT NULL,
   `email` varchar(80) NOT NULL,
   `genero` char(4) NOT NULL,
-  `pass` varchar(45) NOT NULL,
+  `pass` varchar(350) NOT NULL,
   `avatar` varchar(350) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -179,7 +179,7 @@ CREATE TABLE `usuario` (
 
 LOCK TABLES `usuario` WRITE;
 /*!40000 ALTER TABLE `usuario` DISABLE KEYS */;
-INSERT INTO `usuario` VALUES (1,'Pablo','moricz_2002@hotmail.com','masc','$2y$10$LPksdbbXhr14H8Toaep44eGhx6vPKo12ZtWHpc','ruta de la imagen o nombre del archivo'),(2,'Adrian','suaradrian@gmail.com','masc','$2y$10$d0ad3tlitP5CntPElsbSK.NvwOvpCxwgTcdN09','ruta de la imagen o nombre del archivo'),(3,'Roberto','roberto@dh.com','masc','$2y$10$Iw.nAcs3TnVGJfs2BrN2TeBrCBYGlwML35qzBH','imgUser/roberto@dh.com.'),(4,'Laura','laura@gmail.com','fem','$2y$10$5FTYA1SRdUjieKcO017WfeHE20MveUkU0bwuDG','imgUser/laura@gmail.com.webp'),(5,'maria','maria@hotmail.com','fem','$2y$10$PeEqD4/cr3nkLgl/e0c0LeAI/OsMv9w/iopCx6','imgUser/maria@hotmail.com.'),(6,'Gary','gary@hotmail.com','masc','$2y$10$X67Dcq5PfJbSNOR8UBih0OniIPEl30fT.jXfRW','imgUser/gary@hotmail.com.jpg');
+INSERT INTO `usuario` VALUES (1,'Pablo','moricz_2002@hotmail.com','masc','$2y$10$LPksdbbXhr14H8Toaep44eGhx6vPKo12ZtWHpc','ruta de la imagen o nombre del archivo'),(2,'Adrian','suaradrian@gmail.com','masc','$2y$10$d0ad3tlitP5CntPElsbSK.NvwOvpCxwgTcdN09','ruta de la imagen o nombre del archivo'),(3,'Roberto','roberto@dh.com','masc','$2y$10$Iw.nAcs3TnVGJfs2BrN2TeBrCBYGlwML35qzBH','imgUser/roberto@dh.com.'),(4,'Laura','laura@gmail.com','fem','$2y$10$5FTYA1SRdUjieKcO017WfeHE20MveUkU0bwuDG','imgUser/laura@gmail.com.webp'),(5,'maria','maria@hotmail.com','fem','$2y$10$PeEqD4/cr3nkLgl/e0c0LeAI/OsMv9w/iopCx6','imgUser/maria@hotmail.com.'),(6,'Gary','gary@hotmail.com','masc','$2y$10$X67Dcq5PfJbSNOR8UBih0OniIPEl30fT.jXfRW','imgUser/gary@hotmail.com.jpg'),(7,'Ignacio','ignacio@hotmail.com','masc','$2y$10$U5Izyg0zNn/.tikeRFBCYujTBymVqKLGghxmhFpe6u71CFtlvUS8y','imgUser/ignacio@hotmail.com.jpg');
 /*!40000 ALTER TABLE `usuario` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -224,4 +224,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-05-31 23:19:16
+-- Dump completed on 2019-06-01 15:52:20
