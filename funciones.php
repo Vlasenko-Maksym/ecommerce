@@ -138,16 +138,15 @@ function validarLogin($datos){
     //var_dump($datos["pass"]); -- devuelve string '1234'
     // exit;
     $usuarioExistente = buscarUsuarioPorMail($datos["email"]);
-
   //  global $db;
   //    $stmt = $db->prepare("SELECT pass FROM blackfox_db.usuario WHERE email = :email");
   //    $stmt->bindValue(":email",$usuarioExistente["email"]);
   //    $stmt->execute();
   //    $usuario = $stmt->fetch(PDO::FETCH_ASSOC);
-//      var_dump($usuario); // devuelve array asoc. pass =>
+  //      var_dump($usuario); // devuelve array asoc. pass =>
   //    exit;
   //  if(!password_verify($datos["pass"], $usuario["pass"])){
-  var_dump($usuarioExistente);
+  // var_dump($usuarioExistente);
   if(!password_verify($datos["pass"], $usuarioExistente["pass"])){
       $errores["pass"] = "La contraseña es incorrecta.";
     //  Pablo: el problema era que en la base de datos pass tenia VARCHAR(45) y no entraba todo el hasheo, lo cambie a 255.
