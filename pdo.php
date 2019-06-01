@@ -1,7 +1,7 @@
 <?php
-$dsn='mysql:host=127.0.0.1;dbname=db_blackfox;port=3306';
+$dsn='mysql:host=127.0.0.1;dbname=blackfox_db;port=3307';
 $db_user='root';
-$db_pass='root';
+$db_pass='';
 
 
 

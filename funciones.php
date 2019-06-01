@@ -61,12 +61,13 @@ function nextId(){
 }
 */
 function armarUsuario(){
+  global $ext;
   return [
     "nombre" => trim($_POST["nombre"]),
     "email" => trim($_POST["email"]),
     "genero" => trim($_POST["genero"]),
     "pass" => password_hash($_POST["pass1"], PASSWORD_DEFAULT),
-    "avatar" => "ruta de la imagen o nombre del archivo",
+    "avatar" => "imgUser/". $_POST["email"]. "." .$ext,
   ];
 }
 
@@ -83,7 +84,7 @@ function guardarUsuario($usuario){
   $array = json_encode($array, JSON_PRETTY_PRINT);
   file_put_contents("db.json", $array);*/
           global $db;
-          $stmt = $db->prepare("INSERT INTO db_blackfox.usuarios VALUES(default,:nombre, :email, :genero, :pass, :avatar)");
+          $stmt = $db->prepare("INSERT INTO blackfox_db.usuario VALUES(default,:nombre, :email, :genero, :pass, :avatar)");
           $stmt->bindValue(":nombre", $usuario["nombre"]);
           $stmt->bindValue(":email", $usuario["email"]);
           $stmt->bindValue(":genero", $usuario["genero"]);
@@ -104,7 +105,7 @@ function buscarUsuarioPorMail($email){
 
           return null;*/
           global $db;
-            $stmt = $db->prepare("SELECT * FROM db_blackfox.usuarios WHERE email = :email");
+            $stmt = $db->prepare("SELECT * FROM blackfox_db.usuario WHERE email = :email");
             $stmt->bindValue(":email",$email);
             $stmt->execute();
             $usuario = $stmt->fetch(PDO::FETCH_ASSOC);
@@ -134,9 +135,21 @@ function validarLogin($datos){
   if(strlen($datos["pass"]) == 0){
     $errores["pass"] = "El campo contraseña no puede estar vacío.";
   } else {
-    $usuario = buscarUsuarioPorMail($datos["email"]);
+    //var_dump($datos["pass"]); -- devuelve string '1234'
+    // exit;
+    $usuarioExistente = buscarUsuarioPorMail($datos["email"]);
+    global $db;
+      $stmt = $db->prepare("SELECT pass FROM blackfox_db.usuario WHERE email = :email");
+      $stmt->bindValue(":email",$usuarioExistente["email"]);
+      $stmt->execute();
+      $usuario = $stmt->fetch(PDO::FETCH_ASSOC);
+      var_dump($usuario); // devuelve array asoc. pass =>
+      exit;
     if(!password_verify($datos["pass"], $usuario["pass"])){
       $errores["pass"] = "La contraseña es incorrecta.";
+      $resultado = password_verify($datos["pass"], $usuario["pass"]);
+      var_dump($resultado);
+      exit;
     }
   }
 
