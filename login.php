@@ -1,3 +1,42 @@
+<?php
+
+$erroresLogin = [];
+$erroresRegistro = [];
+// identifica de que formulario viene
+
+//form 1 es el de login
+if ($_POST) {
+
+if ($_POST["form"]=="formLogin"){
+    $erroresLogin = Validador::validarLogin($_POST['email'], $_POST['pass']);
+
+    if(empty($erroresLogin)){
+      $usuario = $dbAll->buscarUsuarioPorMail($_POST["email"]);
+      $auth->loguear($usuario);
+    }
+}
+else if($_POST["form"]=="formRegister"){
+  if (empty(Validador::validarRegistro($_POST))) {
+    $ext = pathinfo($_FILES["avatar"]["name"], PATHINFO_EXTENSION);
+    $path = 'imgUser/' . $_FILES['avatar']['name'] . '.' . $ext;
+    move_uploaded_file($_FILES["avatar"]["tmp_name"], $path);
+
+    $usuario= new Usuario;
+    $usuario->setNombre($_POST['nombre']);
+    $usuario->setPass($_POST['pass1']);
+    $usuario->setGenero($_POST['genero']);
+    $usuario->setAvatar($path);
+    $usuario->setEmail($_POST['email']);
+
+    $dbAll->guardarUsuario($usuario);
+
+    // header("location:registroexitoso.php");
+  }
+}
+}
+
+
+?>
 
 <div class="containerm"> <!--le agregue la letra m porque chocaba con otra clase container y le cambiaba el fondo-->
 		<div class="row login">
@@ -6,7 +45,7 @@
 				<!--errores-->
 				<div class="conterrores">
           <ul>
-          <?php foreach ($errores1 as $key => $value) {  ?>
+          <?php foreach ($erroresLogin as $key => $value) {  ?>
               <li><?php echo $value; ?></li>
           <?php } ?>
           </ul>
@@ -21,16 +60,11 @@
 				<h6>o usa tu usuario</h6>
 				<form action="index.php" method="post">
 					<div class="fourm-group">
-						<?php if($_POST && !isset($errores1["email"]) && $_POST["form"] == "form1"): ?>
-						<input type="email" class="form-control" id="emailLogin" name="email"placeholder="Ingrese email" value="<?= $emailOk ?>" >
-						<?php else: ?>
-						<input type="email" class="form-control" id="emailLogin" name="email"placeholder="Ingrese email">
-						<?php endif; ?>
-
+		        <input type="email" class="form-control" id="emailLogin" name="email"placeholder="Ingrese email" value="<?= $_POST['email'] ?? '' ?>" >
 
 						<input type="password" class="form-control" id="passLogin" placeholder="Ingrese contraseña" name="pass"><br>
 
-            <input type="hidden" name="form" value="form1">
+            <input type="hidden" name="form" value="formLogin">
             Recordarme  <input type="checkbox" name="recordarme" value="recordarme"><br>
 						<a href="#">Olvidaste tu contraseña?</a>
 					</div>
@@ -46,7 +80,7 @@
         <!--errores -->
         <div class="conterrores">
           <ul>
-          <?php foreach ($errores2 as $key => $value) {  ?>
+          <?php foreach ($erroresRegistro as $key => $value) {  ?>
               <li><?php echo $value; ?></li>
           <?php } ?>
           </ul>
@@ -62,14 +96,14 @@
 				<form action="index.php" method="post" enctype="multipart/form-data">
 					<div class="fourm-group register-container" >
 
-						<?php if(isset($errores2["nombre"])): ?>
+						<?php if(isset($erroresRegistro["nombre"])): ?>
             <input type="text" class="form-control" id="nameRegister" name="nombre" placeholder="Ingrese nombre">
           	<?php else: ?>
-						<input type="text" class="form-control" id="nameRegister" name="nombre" placeholder="Ingrese nombre" value="<?= $nombreOk ?>" >
+						<input type="text" class="form-control" id="nameRegister" name="nombre" placeholder="Ingrese nombre" value="<?= $_POST['nombre'] ?? '' ?>" >
           	<?php endif; ?>
 
-						<?php if($_POST && !isset($errores2["email"]) && $_POST["form"] == "form2"): ?>
-						<input type="email" class="form-control" id="emailLogin" name="email"placeholder="Ingrese email" value="<?= $emailOk ?>" >
+						<?php if($_POST && !isset($erroresRegistro["email"]) && $_POST["form"] == "formRegister"): ?>
+						<input type="email" class="form-control" id="emailLogin" name="email"placeholder="Ingrese email" value="<?= $_POST['email'] ?? '' ?>" >
 						<?php else: ?>
 						<input type="email" class="form-control" id="emailLogin" name="email"placeholder="Ingrese email">
 						<?php endif; ?>
@@ -92,7 +126,7 @@
         		<?php endif ?>
 
             <input type="file" name="avatar" value="">
-            <input type="hidden" name="form" value="form2">
+            <input type="hidden" name="form" value="formRegister">
           </div>
 					<div class="row button-container">
 						<div class="col-12">

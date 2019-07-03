@@ -1,11 +1,4 @@
-<?php
-$usuario = traerUsuarioLogueado();
-$usuarioLogueado = usuarioLogueado();
-
-?>
-
-
-  <nav>
+<nav>
         <div class="container-fluid menu shadow-sm bg-white rounded">
               <div class="row bg-light text-dark align-middle accordion" id="padre">
                     <div class=" col-md-4 col-lg-6 logo">
@@ -15,8 +8,8 @@ $usuarioLogueado = usuarioLogueado();
                           <a class="menuLink" data-toggle="collapse" href="#collapseMarcas" role="button" aria-expanded="false" aria-controls="collapseMarcas">Galeria</a>
                     </div>
                     <div class=" col-md-4  col-lg-3  registro">
-                      <?php if (usuarioLogueado()): ?>
-                        <a  class="menuLink"data-toggle="collapse" href="#collapseRegistro" role="button" aria-expanded="false" aria-controls="collapseRegistro" >Hola, <?php echo "$usuario[nombre]";?></a>
+                      <?php if ($auth->usuarioLogueado()): ?>
+                        <a  class="menuLink"data-toggle="collapse" href="#collapseRegistro" role="button" aria-expanded="false" aria-controls="collapseRegistro" >Hola, <?= $usuario->getName();?></a>
                         <a  href="logout.php"><img class="btnMeDesk"src="imagenes\logout.png" alt=""></a>
                       <?php else: ?>
                         <a class="menuLink"data-toggle="collapse" href="#collapseRegistro" role="button" aria-expanded="false" aria-controls="collapseRegistro" >Login</a>
@@ -42,21 +35,21 @@ $usuarioLogueado = usuarioLogueado();
                           </div>
                     </div>
                   <!-- BOTON REGISTRO -->
-                    <div class="<?php if (empty($errores2) && empty($errores1)) {echo "collapse ";} ?>mycollapse" id="collapseRegistro" data-parent="#padre">
+                    <div class="<?php if(empty($errores1) && empty($errores2)) {echo "collapse ";} ?>mycollapse" id="collapseRegistro" data-parent="#padre">
                       <!--modificacion para que abra automaticamente si hay errores-->
                           <div class="card ">
                                 <div class="card-body">
-                                  <?php if (usuarioLogueado()): ?>
+                                  <?php if ($auth->usuarioLogueado()): ?>
                                     <div class="row">
                                       <div class="col-xs-12  col-md-6  usercard">
-                                        <img class="imguserlog"src="imguser/<?= $usuario["email"] . ".jpg"?>" alt="">
+                                        <img class="imguserlog"src="imguser/<?= $usuario->getEmail() . ".jpg"?>" alt="">
                                       </div>
                                       <div class="col-xs-12  col-md-6  usercard2">
                                           <ul>
                                                 <br>
-                                                <li><?php echo "Nombre : ".$usuario["nombre"]; ?></li>
-                                                <li><?php echo "Email : ".$usuario["email"]; ?></li>
-                                                <li><?php echo "Genero : ".$usuario["genero"]; ?></li>
+                                                <li><?= "Nombre : ".$usuario->getName(); ?></li>
+                                                <li><?= "Email : ".$usuario->getEmail(); ?></li>
+                                                <li><?= "Genero : ".$usuario->getGenero(); ?></li>
                                                 <hr>
                                                 <li>LOGOUT<a  href="logout.php"><img class="btnMeDesk"src="imagenes\logout.png" alt=""></a></li>
                                           </ul>

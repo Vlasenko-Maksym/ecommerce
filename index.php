@@ -1,32 +1,11 @@
 <?php
-include("pdo.php");
-include("funciones.php");
 
-$errores1 = [];
-$errores2 = [];
-$nombreOk = "";
-$emailOk ="";
-//identifica de que formulario viene
+require "init.php";
 
-if ($_POST && $_POST["form"]=="form1"){
-  if($_POST){
-    //Validar Login
-    $errores1 = validarLogin($_POST);
-    $emailOk = trim($_POST["email"]);
-    if(empty($errores1)){
-      loguearUsuario($_POST["email"]);
-    }
-  }
-}else if($_POST && $_POST["form"]=="form2"){
-  $errores2= validarRegistro($_POST);
-  $nombreOk = trim($_POST["nombre"]);
-  $emailOk = trim($_POST["email"]);
-  if (empty($errores2)) {
-    $ext = pathinfo($_FILES["avatar"]["name"], PATHINFO_EXTENSION);
-    $usuario= armarUsuario();
-    guardarUsuario($usuario);
-    move_uploaded_file($_FILES["avatar"]["tmp_name"], "imgUser/". $_POST["email"]. "." .$ext);
-  }  } ?>
+$usuario = $auth->getUser();
+$usuarioLogueado = $auth->usuarioLogueado();
+
+?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 
