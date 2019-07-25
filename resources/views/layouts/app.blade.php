@@ -1,80 +1,330 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<html lang="en" dir="ltr">
+
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <!-- CSRF Token -->
-    <meta name="csrf-token" content="{{ csrf_token() }}">
-
-    <title>{{ config('app.name', 'Laravel') }}</title>
-
-    <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
-
-    <!-- Fonts -->
-    <link rel="dns-prefetch" href="//fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
-
-    <!-- Styles -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- FontAwesome -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+  <!-- /FontAwesome-->
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <!-- /Bootstrap CSS -->
+  <link href="https://fonts.googleapis.com/css?family=Poiret+One" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Jura" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Fira+Mono" rel="stylesheet">
+  <link rel="stylesheet" href="/css/estilos.css">
+  <title></title>
 </head>
+
 <body>
-    <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
-            <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'Laravel') }}
-                </a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
+  <nav>
+    <div class="container-fluid menu shadow-sm bg-white rounded">
+      <div class="row bg-light text-dark align-middle accordion" id="padre">
+        <div class=" col-md-4 col-lg-6 logo">
+          <a class="text-dark" href="/">BLACK<img class="logoimg" src="imagenes/blackfox.png" alt="logo">FOX</a>
+        </div>
+        <div class=" col-md-4  col-lg-3 marcas ">
+          <a class="menuLink" data-toggle="collapse" href="#collapseMarcas" role="button" aria-expanded="false" aria-controls="collapseMarcas">Productos</a>
+        </div>
+        <div class=" col-md-4  col-lg-3  registro">
+          <?php if (Auth::user()): ?>
+            <a class="menuLink" data-toggle="collapse" href="#collapseRegistro" role="button" aria-expanded="false" aria-controls="collapseRegistro">Hola, <?= $usuario->getName();?></a>
+            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+              @csrf
+              <button type="submit"><img class="btnMeDesk" src="imagenes\logout.png" alt=""></button>
+            </form>
 
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <!-- Left Side Of Navbar -->
-                    <ul class="navbar-nav mr-auto">
 
-                    </ul>
+          <?php else: ?>
+            <a class="menuLink" data-toggle="collapse" href="#collapseRegistro" role="button" aria-expanded="false" aria-controls="collapseRegistro">Login</a>
+          <?php endif; ?>
+          <a data-toggle="collapse" href="#collapseCarro" role="button" aria-expanded="false" aria-controls="collapseCarro"><img class="btnMeDesk" src="imagenes\carro-compra3.png" alt=""></a>
+        </div>
+        <div class="collapse mycollapse carro " id="collapseCarro" data-parent="#padre">
+          <div class=" card card-body mycard">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+            consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+          </div>
+        </div>
 
-                    <!-- Right Side Of Navbar -->
-                    <ul class="navbar-nav ml-auto">
-                        <!-- Authentication Links -->
-                        @guest
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
-                            </li>
-                            @if (Route::has('register'))
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
-                                </li>
-                            @endif
-                        @else
-                            <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::user()->name }} <span class="caret"></span>
-                                </a>
+        <div class="collapse mycollapse" id="collapseMarcas" data-parent="#padre">
 
-                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ route('logout') }}"
-                                       onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
-                                    </a>
+          {{-- @include('../nav') --}}
 
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                        @csrf
-                                    </form>
-                                </div>
-                            </li>
-                        @endguest
-                    </ul>
-                </div>
+          <div class="card card-body mycard">
+            <div class="card card-body mycard">
+
+              @foreach ($brands as $brand)
+                <a href="/brand/{{$brand->id}}"><img class="imgmarcas" src="/{{$brand->logoUrl}}" alt="{{$brand->name}}"></a>
+              @endforeach
+
             </div>
-        </nav>
+          </div>
 
-        <main class="py-4">
-            @yield('content')
-        </main>
-    </div>
-</body>
-</html>
+        </div>
+        <!-- BOTON REGISTRO -->
+        <div class="<?php if(empty($errores1) && empty($errores2)) {echo "collapse ";} ?>mycollapse" id="collapseRegistro" data-parent="#padre">
+          <!--modificacion para que abra automaticamente si hay errores-->
+          <div class="card ">
+            <div class="card-body">
+              <?php if (Auth::user()): ?>
+                <div class="row">
+                  <div class="col-xs-12  col-md-6  usercard">
+                    <img class="imguserlog" src="imguser/<?= $usuario->getEmail() . ".jpg"?>" alt="">
+                  </div>
+                  <div class="col-xs-12  col-md-6  usercard2">
+                    <ul>
+                      <br>
+                      <li><?= "Nombre : ".$usuario->getName(); ?></li>
+                      <li><?= "Email : ".$usuario->getEmail(); ?></li>
+                      <li><?= "Genero : ".$usuario->getGenero(); ?></li>
+                      <hr>
+                      <li>LOGOUT<a href="logout.php"><img class="btnMeDesk" src="imagenes\logout.png" alt=""></a></li>
+                    </ul>
+                  </div>
+                </div>
+              <?php else:?>
+
+                <div class="containerm">
+                  <!--le agregue la letra m porque chocaba con otra clase container y le cambiaba el fondo-->
+                  <div class="row login">
+                    <div class="col-xl-6 col-md-6 col-sm-12 colRegistro">
+                      <h2>Iniciar sesión</h2>
+                      <!--errores-->
+                      <div class="conterrores">
+                        <ul>
+                          <?php
+                          $erroresLogin = [];
+                          $erroresRegistro = [];
+                          foreach ($erroresLogin as $key => $value) {  ?>
+                            <li><?php echo $value; ?></li>
+                            <?php } ?>
+                          </ul>
+                        </div>
+
+                        <div class="social-container">
+                          <div class="mybutton">
+                            <button class="fButton" type="button">f</button>
+                            <button class="gButton" type="button">g</button>
+                          </div>
+                        </div>
+                        <h6>o usa tu usuario</h6>
+                        <form method="POST" action="{{ route('login') }}">
+                          @csrf
+                          <div class="fourm-group">
+                            <input type="email" class="form-control" id="emailLogin" name="email" placeholder="Ingrese email" value="<?= $_POST['email'] ?? '' ?>">
+
+                            <input type="password" class="form-control" id="passLogin" placeholder="Ingrese contraseña" name="pass"><br>
+
+                            <input type="hidden" name="form" value="formLogin">
+                            Recordarme <input type="checkbox" name="recordarme" value="recordarme"><br>
+                            <a href="#">Olvidaste tu contraseña?</a>
+                          </div>
+                          <div class="row button-container">
+                            <div class="col-12 ">
+                              <button type="submit" class="btn btn-primary custom-btn">Logearse</button>
+                            </div>
+                          </div>
+                        </form>
+                      </div>
+                      <div class="col-xl-6 col-md-6 col-sm-12 colRegistro">
+                        <h2>Registrarse</h2>
+                        <!--errores -->
+                        <div class="conterrores">
+                          <ul>
+                            <?php foreach ($erroresRegistro as $key => $value) {  ?>
+                              <li><?php echo $value; ?></li>
+                              <?php } ?>
+                            </ul>
+                          </div>
+                          <!--errores -->
+                          <div class="social-container">
+                            <div class="mybutton">
+                              <button class="fButton" type="button">f</button>
+                              <button class="gButton" type="button">g</button>
+                            </div>
+                          </div>
+                          <h6>o usa tu email para registrarte</h6>
+                          <form method="POST" action="{{ route('register') }}" enctype="multipart/form-data">
+                            @csrf
+                            <div class="fourm-group register-container">
+                              <input id="name nameRegister" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" autocomplete="name" autofocus
+                                placeholder="Ingrese nombre">
+                                @error('name')
+                                  <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                  </span>
+                                @enderror
+                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" id="emailLogin" name="email" placeholder="Ingrese email" value="{{ old('email') }}"
+                                  autocomplete="email">
+                                  @error('email')
+                                    <span class="invalid-feedback" role="alert">
+                                      <strong>{{ $message }}</strong>
+                                    </span>
+                                  @enderror
+                                  <input id="password passRegister" type="password" class="form-control @error('password') is-invalid @enderror" name="password" autocomplete="new-password" placeholder="Ingrese contraseña">
+                                    @error('password')
+                                      <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                      </span>
+                                    @enderror
+                                  <input id="password-confirm passRegister2" type="password" class="form-control" name="password_confirmation" placeholder="Repita contraseña" autocomplete="new-password">
+                                  Genero: Masculino
+                                  <?php if(isset($_POST["genero"]) && $_POST["genero"] == "masc"): ?>
+                                    <input type="radio" name="genero" value="masc" checked>
+                                  <?php else: ?>
+                                    <input type="radio" name="genero" value="masc">
+                                  <?php endif ?>
+
+                                  Femenino
+                                  <?php if(isset($_POST["genero"]) && $_POST["genero"] == "fem"): ?>
+                                    <input type="radio" name="genero" value="fem" checked>
+                                  <?php else: ?>
+                                    <input type="radio" name="genero" value="fem">
+                                  <?php endif ?>
+
+                                  <input type="file" name="avatar" value="">
+                                  <input type="hidden" name="form" value="formRegister">
+                                </div>
+                                <div class="row button-container">
+                                  <div class="col-12">
+                                    <button type="submit" class="btn btn-primary custom-btn">Registrarse</button>
+                                  </div>
+                                </div>
+                              </form>
+                            </div>
+                          </div>
+                        </div>
+
+
+                      <?php endif; ?>
+
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </nav>
+
+          <!--Menu mobile de prueba-->
+          <nav class="menuMobile container-fluid shadow-sm bg-light">
+            <div class="contMeMo ">
+              <div class="subContMeMo">
+                <a href="/"><img class="btnMeMo" style="width: 40px;" src="imagenes\blackfox.png" alt=""></a>
+              </div>
+              <div class="subContMeMo">
+                <a data-toggle="collapse" href="#collapseMarcas" role="button" aria-expanded="false" aria-controls="collapseMarcas"><img class="btnMeMo" src="imagenes\clockcards2.png" alt=""></a>
+              </div>
+              <div class="subContMeMo">
+                <a data-toggle="collapse" href="#collapseRegistro" role="button" aria-expanded="false" aria-controls="collapseRegistro"><img class="btnMeMo" src="imagenes\user2.png" alt=""></a>
+              </div>
+              <div class="subContMeMo">
+                <a data-toggle="collapse" href="#collapseCarro" role="button" aria-expanded="false" aria-controls="collapseCarro"><img class="btnMeMo" src="imagenes\carro-compra2.png" alt=""></a>
+              </div>
+            </div>
+          </nav>
+
+          @yield('content')
+
+          <section>
+            <!-- Footer  -->
+            <!-- footer -->
+            <footer class="page-footer font-small mdb-color p-3 mb-2 bg-dark  pt-4">
+              <!-- Footer Links -->
+              <div class="container text-center text-md-left">
+                <!-- Footer links -->
+                <div class="row text-center text-md-left mt-3 pb-3">
+                  <!-- Grid column -->
+                  <hr class="w-100 clearfix d-md-none">
+                  <!-- Grid column -->
+                  <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mt-3">
+                    <h6 class="text-uppercase mb-4 font-weight-bold">Contacto</h6>
+                    <p>
+                      <a href="imagenes/telefono-contacto.png">Telefono</a>
+                    </p>
+                    <p>
+                      <a href="https://goo.gl/maps/5Hxe7ReJTjPKt1sn7">Gogle Maps</a>
+                    </p>
+                    <p>
+                      <a href="http://dotbairesshopping.com/">Sucursales</a>
+                    </p>
+                  </div>
+                  <!-- Grid column -->
+                  <hr class="w-100 clearfix d-md-none">
+                  <!-- Grid column -->
+                  <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mt-3">
+                    <h6 class="text-uppercase mb-4 font-weight-bold">Nosotros</h6>
+                    <p>
+                      <a href="https://es.wikipedia.org/wiki/Historia_de_la_relojer%C3%ADa">Nuestros comienzos</a>
+                    </p>
+                    <p>
+                      <a href="http://www.thewatchestimes.com/componentes-de-un-reloj-materiales/">¿Qué materiales usamos?</a>
+                    </p>
+                    <p>
+                      <a href="https://www.revistagq.com/moda/relojes-y-accesorios/articulos/estas-son-las-cuatro-empresas-que-se-reparten-el-pastel-de-la-industria-relojera-europea/27499">Rango de ventas</a>
+                    </p>
+                    <p>
+                      <a href="https://www.eleconomista.es/evasion/tendencias/noticias/3761786/02/12/Como-comprar-un-reloj-de-lujo-y-saber-lo-que-compras.html">¿Qué reloj comprar?</a>
+                    </p>
+                  </div>
+                  <!-- Grid column -->
+                  <hr class="w-100 clearfix d-md-none">
+                  <!-- Grid column -->
+                  <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mt-3">
+                    <h6 class="text-uppercase mb-4 font-weight-bold">Redes Sociales</h6>
+                    <p>
+                      <a href="https://www.facebook.com/Black-Fox-1267054660128609/"><i class="fab fa-facebook-f mr-3"></i>Facebook</a>
+                    </p>
+                    <p>
+                      <a href="twitter"><i class="fab fa-twitter mr-3"></i>Twitter</p>
+                        <p>
+                          <a href="google"><i class="fab fa-google-plus-g mr-3"></i> Google</p>
+                            <p>
+                              <a href="instagram"><i class="fab fa-instagram mr-3"></i> Instagram</p>
+                              </div>
+                              <!-- Grid column -->
+                            </div>
+                            <!-- Footer links -->
+                            <hr>
+                            <!-- Grid row -->
+                            <div class="row d-flex align-items-center ">
+                              <!-- Grid column -->
+                              <div class="col-md-7 col-lg-8">
+                                <!--Copyright-->
+                                <p class="text-center text-md-left">© 2019 Copyright:
+                                  <a href="#">
+                                    <strong> Maksym Enterprises</strong>
+                                  </a>
+                                </p>
+                              </div>
+                              <!-- Grid column -->
+                              <!-- Grid column -->
+                              <div class="col-md-5 col-lg-4 ml-lg-0">
+                              </div>
+                              <!-- Grid row -->
+                            </div>
+                            <!-- Footer Links -->
+                          </footer>
+                          <!-- Footer -->
+
+                        </section>
+
+                      </div>
+                      <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+                      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+                      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+                      <script type="text/javascript">
+                      //Reabre si hay errores.
+                      var errores = document.querySelectorAll(".invalid-feedback");
+                      var labelCollapse = document.getElementById("collapseRegistro");
+                      if (errores.length) {
+                        labelCollapse.classList.add("show");
+                      }
+
+
+                      </script>
+                    </body>
+
+                    </html>

@@ -82,4 +82,10 @@ class ProductController extends Controller
     {
         //
     }
+
+    public function category($id)
+    {
+        $products = Product::where('brandId', $id)->get();
+        return view('category', compact('products'));
+    }
 }

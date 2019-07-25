@@ -3,7 +3,9 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Support\Facades\View;
 use Illuminate\Support\Facades\Schema;
+use App\Brand;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -24,6 +26,12 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        \App::setLocale('es');
         Schema::defaultStringLength(191);
+
+        View::composer('*', function($view) {
+        $view->with('brands', Brand::menus());
+        //Referencia: https://styde.net/menu-dinamico-en-laravel/
+    });
     }
 }
