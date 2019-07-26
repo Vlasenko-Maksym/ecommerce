@@ -16,7 +16,7 @@ class CreateBrandsTable extends Migration
         Schema::create('brands', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('name', 50);
-            $table->string('logo', 512);
+            $table->string('logoUrl', 512);
             $table->bigInteger('statusId')->unsigned();
             $table->foreign('statusId')->references('id')->on('statuses');
             $table->timestamps();
