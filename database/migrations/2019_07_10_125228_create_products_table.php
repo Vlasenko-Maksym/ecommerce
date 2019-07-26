@@ -23,6 +23,7 @@ class CreateProductsTable extends Migration
             $table->string('description', 350);
             $table->bigInteger('promotionId')->unsigned();
             $table->bigInteger('brandId')->unsigned();
+            $table->string('logoUrl', 350);
             $table->foreign('promotionId')->references('id')->on('promotions');
             $table->foreign('brandId')->references('id')->on('brands');
             $table->timestamps();
