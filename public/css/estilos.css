@@ -110,6 +110,13 @@ h6{
   /* fin de CSS de form de agregado de productos */
 }
 @media (min-width: 992px) and (max-width:1189px){
+
+  .container-admin {
+    width: 100%;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
   .accionables-container.row{
     flex-direction: row;
   }

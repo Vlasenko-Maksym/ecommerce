@@ -10,15 +10,18 @@ class User extends Authenticatable
 {
     use Notifiable;
 
+    const ROLE_ADMIN = 'admin';
+    const ROLE_CUSTOMER = 'customer';
+
     /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
     protected $guarded=[];
-    
+
     protected $fillable = [
-        'name', 'email', 'password', 'avatar','gender'
+        'name', 'email', 'password', 'avatar','gender','role',
     ];
 
     /**
@@ -43,5 +46,8 @@ class User extends Authenticatable
       return $this->hasMany('\App\Cart', 'userId');
     }
 
+    public function isAdmin(){
+      return $this->role == self::ROLE_ADMIN;
+    }
 
 }

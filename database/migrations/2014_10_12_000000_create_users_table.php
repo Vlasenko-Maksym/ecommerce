@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use App\User;
 
 class CreateUsersTable extends Migration
 {
@@ -19,6 +20,7 @@ class CreateUsersTable extends Migration
             $table->string('email', 60)->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->enum('gender', ["MASCULINO","FEMENINO"]);
+            $table->string('role')->default(User::ROLE_CUSTOMER);
             $table->string('avatar', 360);
             $table->string('password', 350);
             $table->rememberToken();

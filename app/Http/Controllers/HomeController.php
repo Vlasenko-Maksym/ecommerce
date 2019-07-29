@@ -4,29 +4,31 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Brand;
+use Auth;
 
 class HomeController extends Controller
 {
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-      //  $this->middleware('auth');
+  /**
+  * Create a new controller instance.
+  *
+  * @return void
+  */
+  public function __construct()
+  {
+    //  $this->middleware('auth');
+  }
+
+  /**
+  * Show the application dashboard.
+  *
+  * @return \Illuminate\Contracts\Support\Renderable
+  */
+  public function index()
+  {
+    if(Auth::check() && Auth::user()->isAdmin()){
+      return view('admin');
     }
 
-    /**
-     * Show the application dashboard.
-     *
-     * @return \Illuminate\Contracts\Support\Renderable
-     */
-    public function index()
-    {
-      // dd(\Auth::user());
-      return view('home');
-    }
-
-
+    return view('home');
+  }
 }

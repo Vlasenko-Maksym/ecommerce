@@ -74,6 +74,7 @@
       </div>
     </form>
   </div>
-@endsection
 
-//si no tengo marcas cargas, me tira errores si quiero guardar un producto, como lo soluciono?? El problema es que no puedo guardar un producto si no tengo creadas marcas y promociones.
+
+  {{-- /*si no tengo marcas cargas, me tira errores si quiero guardar un producto, como lo soluciono?? El problema es que no puedo guardar un producto si no tengo creadas marcas y promociones.*/ --}}
+@endsection

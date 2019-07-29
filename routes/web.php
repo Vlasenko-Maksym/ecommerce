@@ -19,10 +19,13 @@ Auth::routes();
 
 Route::get('/', 'HomeController@index')->name('home');
 Route::get('/brand/{id}', 'ProductController@category');
-Route::get('/agregarProducto', 'ProductController@create');
-Route::post('/agregarProducto', 'ProductController@store');
-Route::get('/guardadoExitoso', 'ProductController@exito');
-Route::get('/agregarPromocion', 'PromotionController@create');
-Route::post('/agregarPromocion', 'PromotionController@store');
-Route::get('/agregarMarca', 'BrandController@create');
-Route::post('/agregarMarca', 'BrandController@store');
+
+Route::middleware(['auth', 'role'])->group(function (){
+  Route::get('/agregarProducto', 'ProductController@create');
+  Route::post('/agregarProducto', 'ProductController@store');
+  Route::get('/guardadoExitoso', 'ProductController@exito');
+  Route::get('/agregarPromocion', 'PromotionController@create');
+  Route::post('/agregarPromocion', 'PromotionController@store');
+  Route::get('/agregarMarca', 'BrandController@create');
+  Route::post('/agregarMarca', 'BrandController@store');
+});
