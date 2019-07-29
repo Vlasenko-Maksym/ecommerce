@@ -13,6 +13,7 @@ class CreateBrandsTable extends Migration
      */
     public function up()
     {
+      
         Schema::create('brands', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('name', 50);
@@ -20,6 +21,7 @@ class CreateBrandsTable extends Migration
             $table->bigInteger('statusId')->unsigned();
             $table->foreign('statusId')->references('id')->on('statuses');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

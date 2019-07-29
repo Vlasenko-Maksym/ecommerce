@@ -28,17 +28,15 @@
           <a class="menuLink" data-toggle="collapse" href="#collapseMarcas" role="button" aria-expanded="false" aria-controls="collapseMarcas">Productos</a>
         </div>
         <div class=" col-md-4  col-lg-3  registro">
-          <?php if (Auth::user()): ?>
-            <a class="menuLink" data-toggle="collapse" href="#collapseRegistro" role="button" aria-expanded="false" aria-controls="collapseRegistro">Hola, <?= $usuario->getName();?></a>
+          @if (Auth::user())
+            <a class="menuLink" data-toggle="collapse" href="#collapseRegistro" role="button" aria-expanded="false" aria-controls="collapseRegistro">Hola, {{Auth::user()->name}}</a>
             <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
               @csrf
               <button type="submit"><img class="btnMeDesk" src="imagenes\logout.png" alt=""></button>
             </form>
-
-
-          <?php else: ?>
+          @else
             <a class="menuLink" data-toggle="collapse" href="#collapseRegistro" role="button" aria-expanded="false" aria-controls="collapseRegistro">Login</a>
-          <?php endif; ?>
+          @endif
           <a data-toggle="collapse" href="#collapseCarro" role="button" aria-expanded="false" aria-controls="collapseCarro"><img class="btnMeDesk" src="imagenes\carro-compra3.png" alt=""></a>
         </div>
         <div class="collapse mycollapse carro " id="collapseCarro" data-parent="#padre">
@@ -56,7 +54,7 @@
             <div class="card card-body mycard">
 
               @foreach ($brands as $brand)
-                <a href="/brand/{{$brand->id}}"><img class="imgmarcas" src="/{{$brand->logoUrl}}" alt="{{$brand->name}}"></a>
+                <a href="/brand/{{$brand->id}}"><img class="imgmarcas" src="/{{$brand->logoUrl}}" alt="{{$brand->name}}" id="{{$brand->id}}"></a>
               @endforeach
 
             </div>
@@ -68,23 +66,28 @@
           <!--modificacion para que abra automaticamente si hay errores-->
           <div class="card ">
             <div class="card-body">
-              <?php if (Auth::user()): ?>
+              @if (Auth::user())
                 <div class="row">
                   <div class="col-xs-12  col-md-6  usercard">
-                    <img class="imguserlog" src="imguser/<?= $usuario->getEmail() . ".jpg"?>" alt="">
+                    <img class="imguserlog" src="imguser/{{Auth::user()->email}}.'.jpg'" alt="">
                   </div>
                   <div class="col-xs-12  col-md-6  usercard2">
                     <ul>
                       <br>
-                      <li><?= "Nombre : ".$usuario->getName(); ?></li>
-                      <li><?= "Email : ".$usuario->getEmail(); ?></li>
-                      <li><?= "Genero : ".$usuario->getGenero(); ?></li>
+                      <li>Nombre: {{Auth::user()->name}}</li>
+                      <li>Email : {{Auth::user()->email}}</li>
+                      <li>Genero : {{Auth::user()->gender}}</li>
                       <hr>
-                      <li>LOGOUT<a href="logout.php"><img class="btnMeDesk" src="imagenes\logout.png" alt=""></a></li>
+                      <li>
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST"> {{-- style="display: none;" Borré este atributo style de la tag form porque luego de pasar este form a laravel, este style hacía que el botón de logout se mantuviera oculto sin poder uno desloguearse. Eliminando este estilo, se puede visualizar el botón normalmente. --}}
+                          @csrf
+                          <button type="submit"><img class="btnMeDesk" src="imagenes\logout.png" alt="">LOGOUT</button>
+                        </form>
+                      </li>
                     </ul>
                   </div>
                 </div>
-              <?php else:?>
+              @else
 
                 <div class="containerm">
                   <!--le agregue la letra m porque chocaba con otra clase container y le cambiaba el fondo-->
@@ -110,13 +113,21 @@
                           </div>
                         </div>
                         <h6>o usa tu usuario</h6>
-                        <form method="POST" action="{{ route('login') }}">
+                        <form method="POST" action="{{ route('login') }}" enctype = "multipart/form-data">
                           @csrf
                           <div class="fourm-group">
-                            <input type="email" class="form-control" id="emailLogin" name="email" placeholder="Ingrese email" value="<?= $_POST['email'] ?? '' ?>">
-
-                            <input type="password" class="form-control" id="passLogin" placeholder="Ingrese contraseña" name="pass"><br>
-
+                            <input type="email" class="form-control @error('email') is-invalid @enderror" id="emailLogin" name="email" placeholder="Ingrese email" value="{{ old('email') }}" autocomplete="email" autofocus>
+                              @error('email')
+                                  <span class="invalid-feedback" role="alert">
+                                      <strong>{{ $message }}</strong>
+                                  </span>
+                              @enderror
+                            <input type="password" class="form-control @error('password') is-invalid @enderror" id="password passLogin" placeholder="Ingrese contraseña" name="password" autocomplete="current-password"><br>
+                              @error('password')
+                                  <span class="invalid-feedback" role="alert">
+                                      <strong>{{ $message }}</strong>
+                                  </span>
+                              @enderror
                             <input type="hidden" name="form" value="formLogin">
                             Recordarme <input type="checkbox" name="recordarme" value="recordarme"><br>
                             <a href="#">Olvidaste tu contraseña?</a>
@@ -171,20 +182,20 @@
                                     @enderror
                                   <input id="password-confirm passRegister2" type="password" class="form-control" name="password_confirmation" placeholder="Repita contraseña" autocomplete="new-password">
                                   Genero: Masculino
-                                  <?php if(isset($_POST["genero"]) && $_POST["genero"] == "masc"): ?>
-                                    <input type="radio" name="genero" value="masc" checked>
+                                  <?php if(isset($_POST["gender"]) && $_POST["gender"] == "MASCULINO"): ?>
+                                    <input type="radio" name="gender" value="MASCULINO" checked>
                                   <?php else: ?>
-                                    <input type="radio" name="genero" value="masc">
+                                    <input type="radio" name="gender" value="MASCULINO">
                                   <?php endif ?>
 
                                   Femenino
-                                  <?php if(isset($_POST["genero"]) && $_POST["genero"] == "fem"): ?>
-                                    <input type="radio" name="genero" value="fem" checked>
+                                  <?php if(isset($_POST["gender"]) && $_POST["gender"] == "FEMENINO"): ?>
+                                    <input type="radio" name="gender" value="FEMENINO" checked>
                                   <?php else: ?>
-                                    <input type="radio" name="genero" value="fem">
+                                    <input type="radio" name="gender" value="FEMENINO">
                                   <?php endif ?>
 
-                                  <input type="file" name="avatar" value="">
+                                  <input type="file" name="avatar">
                                   <input type="hidden" name="form" value="formRegister">
                                 </div>
                                 <div class="row button-container">
@@ -315,16 +326,7 @@
                       <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
                       <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
                       <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-                      <script type="text/javascript">
-                      //Reabre si hay errores.
-                      var errores = document.querySelectorAll(".invalid-feedback");
-                      var labelCollapse = document.getElementById("collapseRegistro");
-                      if (errores.length) {
-                        labelCollapse.classList.add("show");
-                      }
-
-
-                      </script>
+                      <script src="{{asset('js/layout.js')}}"></script>
                     </body>
 
                     </html>

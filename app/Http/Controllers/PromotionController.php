@@ -24,7 +24,8 @@ class PromotionController extends Controller
      */
     public function create()
     {
-        //
+      // $promotions = Promotion::all();
+        return view('agregarPromocion');
     }
 
     /**
@@ -35,7 +36,14 @@ class PromotionController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $newPromotion = new Promotion();
+
+        $newPromotion->name = $request["name"];
+        $newPromotion->percentage = $request["percentage"];
+        $newPromotion->description = $request["description"];
+        $newPromotion->save();
+
+        return redirect("/guardadoExitoso");
     }
 
     /**

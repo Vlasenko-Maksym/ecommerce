@@ -16,9 +16,8 @@ class CreateProductsTable extends Migration
         Schema::create('products', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('name', 50);
-            $table->string('gender', 3);
-            $table->decimal('price', 5,2);
-            $table->string('type', 50);
+            $table->decimal('price', 10,2);
+            $table->enum('category', ["FEMENINO","MASCULINO","UNISEX"]);
             $table->integer('stock');
             $table->string('description', 350);
             $table->bigInteger('promotionId')->unsigned();
