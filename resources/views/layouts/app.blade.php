@@ -52,7 +52,7 @@
 
           <div class="card card-body mycard">
             <div class="card card-body mycard">
-              @if (Auth::user()->role == 'admin')
+              @if (auth()->check() && auth()->user()->isAdmin())
                 <div class="container-admin">
                       <a class="link-admin" href="/EditarProducto">Productos</a>
                       <a class="link-admin" href="/EditarMarca">Marcas</a>
