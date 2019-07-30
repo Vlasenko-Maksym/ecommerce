@@ -4,8 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
+use App\Role;
 
-class EditUserController extends Controller
+class UserController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -24,8 +25,9 @@ class EditUserController extends Controller
      */
     public function create()
     {
-      $userslist = User::all();
-        return view('EditarUsuarios', compact('userslist'));
+        $userslist = User::withTrashed()->get();
+        $roles = User::getRoles();
+        return view('EditarUsuarios', compact('userslist', 'roles'));
     }
 
     /**
@@ -81,6 +83,18 @@ class EditUserController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $user = User::findOrFail($id);
+
+        if (!$user->isAdmin()) {
+          $user->delete();
+        }
+
+        return redirect("/editarUsuarios");
     }
+
+    public function restore($id) {
+      User::withTrashed()->find($id)->restore();
+      return redirect("/editarUsuarios");
+    }
+
 }

@@ -5,10 +5,11 @@ namespace App;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class User extends Authenticatable
 {
-    use Notifiable;
+    use Notifiable,SoftDeletes;
 
     const ROLE_ADMIN = 'admin';
     const ROLE_CUSTOMER = 'customer';
@@ -48,6 +49,14 @@ class User extends Authenticatable
 
     public function isAdmin(){
       return $this->role == self::ROLE_ADMIN;
+    }
+
+    public static function getRoles()
+    {
+      return [
+        self::ROLE_ADMIN => 'admin',
+        self::ROLE_CUSTOMER => 'customer',
+      ];
     }
 
 }

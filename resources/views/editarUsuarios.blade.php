@@ -7,6 +7,7 @@
       <thead>
         <tr>
           <th>Usuario</th>
+          <th>E-mail</th>
           <th>Tipo de usuario</th>
           <th>Editar</th>
         </tr>
@@ -14,9 +15,30 @@
       <tbody>
         @forelse ($userslist as $user)
           <tr>
-            <td>{{}}</td>
-            <td>{{}}</td>
-            <td>form</td>
+            <td>{{$user->name}}</td>
+            <td>{{$user->email}}</td>
+            <td><select class="" name="">
+              @forelse ($roles as $role)
+                {{-- @dd($roles); --}}
+                <option value="{{$role}}">{{$role}}</option>
+              @empty
+                <option value="">No hay opciones disponibles</option>
+              @endforelse
+            </select></td>
+            <td>
+              @if($user->deleted_at == null)
+              <form class="" action="/editarUsuarios/{{$user->id}}" method="post" enctype="multipart/form-data">
+                @csrf
+                @method('delete')
+                <button>Borrar</button>
+              </form>
+            @else
+              <form class="" action="/editarUsuarios/{{$user->id}}" method="post" enctype="multipart/form-data">
+                @csrf
+                <button>Habilitar</button>
+              </form>
+            @endif
+            </td>
           </tr>
         @empty
           <tr>
