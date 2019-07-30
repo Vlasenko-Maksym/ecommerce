@@ -28,4 +28,6 @@ Route::middleware(['auth', 'role'])->group(function (){
   Route::post('/agregarPromocion', 'PromotionController@store');
   Route::get('/agregarMarca', 'BrandController@create');
   Route::post('/agregarMarca', 'BrandController@store');
+  Route::get('/editarUsuarios', 'EditUserController@create');
+  Route::post('/EditarUsuarios', 'EditUserController@store');
 });

@@ -25,8 +25,12 @@
           <a class="text-dark" href="/">BLACK<img class="logoimg" src="imagenes/blackfox.png" alt="logo">FOX</a>
         </div>
         <div class=" col-md-4  col-lg-3 marcas ">
-          <a class="menuLink" data-toggle="collapse" href="#collapseMarcas" role="button" aria-expanded="false" aria-controls="collapseMarcas">Productos</a>
-        </div>
+          @if (auth()->check() && auth()->user()->isAdmin())
+            <a class="menuLink" data-toggle="collapse" href="#collapseMarcas" role="button" aria-expanded="false" aria-controls="collapseMarcas">Productos</a>
+          @else
+            <a class="menuLink" data-toggle="collapse" href="#collapseMarcas" role="button" aria-expanded="false" aria-controls="collapseMarcas">Admin Panel</a>
+          </div>
+        @endif
         <div class=" col-md-4  col-lg-3  registro">
           @if (Auth::user())
             <a class="menuLink" data-toggle="collapse" href="#collapseRegistro" role="button" aria-expanded="false" aria-controls="collapseRegistro">Hola, {{Auth::user()->name}}</a>
@@ -54,10 +58,10 @@
             <div class="card card-body mycard">
               @if (auth()->check() && auth()->user()->isAdmin())
                 <div class="container-admin">
-                      <a class="link-admin" href="/EditarProducto">Productos</a>
-                      <a class="link-admin" href="/EditarMarca">Marcas</a>
-                      <a class="link-admin" href="/EditarPromocion">Promociones</a>
-                      <a class="link-admin" href="/EditarUsuario">Usuarios</a>
+                  <a class="link-admin" href="/EditarProducto">Productos</a>
+                  <a class="link-admin" href="/EditarMarca">Marcas</a>
+                  <a class="link-admin" href="/EditarPromocion">Promociones</a>
+                  <a class="link-admin" href="/EditarUsuario">Usuarios</a>
                 </div>
               @else
                 @foreach ($brands as $brand)

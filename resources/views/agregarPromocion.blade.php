@@ -49,6 +49,6 @@
             </tr>
           @endforelse
         </tbody>
-      </table>
-    </div> --}}
+      </table> --}}
+    </div>
   @endsection
