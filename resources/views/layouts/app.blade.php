@@ -29,8 +29,8 @@
             <a class="menuLink" data-toggle="collapse" href="#collapseMarcas" role="button" aria-expanded="false" aria-controls="collapseMarcas">Productos</a>
           @else
             <a class="menuLink" data-toggle="collapse" href="#collapseMarcas" role="button" aria-expanded="false" aria-controls="collapseMarcas">Admin Panel</a>
-          </div>
         @endif
+        </div>
         <div class=" col-md-4  col-lg-3  registro">
           @if (Auth::user())
             <a class="menuLink" data-toggle="collapse" href="#collapseRegistro" role="button" aria-expanded="false" aria-controls="collapseRegistro">Hola, {{Auth::user()->name}}</a>
