@@ -26,9 +26,9 @@
         </div>
         <div class=" col-md-4  col-lg-3 marcas ">
           @if (auth()->check() && auth()->user()->isAdmin())
-            <a class="menuLink" data-toggle="collapse" href="#collapseMarcas" role="button" aria-expanded="false" aria-controls="collapseMarcas">Productos</a>
-          @else
             <a class="menuLink" data-toggle="collapse" href="#collapseMarcas" role="button" aria-expanded="false" aria-controls="collapseMarcas">Admin Panel</a>
+          @else
+            <a class="menuLink" data-toggle="collapse" href="#collapseMarcas" role="button" aria-expanded="false" aria-controls="collapseMarcas">Productos</a>
         @endif
         </div>
         <div class=" col-md-4  col-lg-3  registro">
