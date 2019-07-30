@@ -22,7 +22,7 @@
     <div class="container-fluid menu shadow-sm bg-white rounded">
       <div class="row bg-light text-dark align-middle accordion" id="padre">
         <div class=" col-md-4 col-lg-6 logo">
-          <a class="text-dark" href="/">BLACK<img class="logoimg" src="imagenes/blackfox.png" alt="logo">FOX</a>
+          <a class="text-dark" href="/">BLACK<img class="logoimg" src="/imagenes/blackfox.png" alt="logo">FOX</a>
         </div>
         <div class=" col-md-4  col-lg-3 marcas ">
           @if (auth()->check() && auth()->user()->isAdmin())

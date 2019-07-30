@@ -29,6 +29,8 @@ Route::middleware(['auth', 'role'])->group(function (){
   Route::get('/agregarMarca', 'BrandController@create');
   Route::post('/agregarMarca', 'BrandController@store');
   Route::get('/editarUsuarios', 'UserController@create');
+  Route::get('/editarPerfil/{id}', 'UserController@edit');
   Route::post('/editarUsuarios/{id}', 'UserController@restore');
   Route::delete('/editarUsuarios/{id}', 'UserController@destroy');
+  Route::patch('/editarUsuarios')
 });

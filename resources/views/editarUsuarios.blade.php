@@ -40,6 +40,13 @@
             @endif
             </td>
           </tr>
+          <tr>
+            <form class="" action="/editarPerfil/{{$user->id}}" method="get" enctype="mutlipart/form-data">
+              @csrf
+              <button>Editar Perfil</button>
+            </form>
+          </tr>
+
         @empty
           <tr>
             <td>-</td>

@@ -13,7 +13,7 @@ class User extends Authenticatable
 
     const ROLE_ADMIN = 'admin';
     const ROLE_CUSTOMER = 'customer';
-
+    const SEX = ['FEMENINO','MASCULINO'];
     /**
      * The attributes that are mass assignable.
      *
@@ -58,5 +58,7 @@ class User extends Authenticatable
         self::ROLE_CUSTOMER => 'customer',
       ];
     }
-
+    public static function getRoles()
+    {
+      return self::SEX;}
 }

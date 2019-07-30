@@ -60,7 +60,8 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        //
+      $user = User::findOrFail($id);
+      return view('/editarPerfil', compact('user'));
     }
 
     /**
@@ -72,7 +73,8 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+      
+        return redirect('/editarUsuarios');
     }
 
     /**
