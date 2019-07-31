@@ -28,6 +28,7 @@ class ProductController extends Controller
   {
     $brands = Brand::all();
     $promotions = Promotion::all();
+
     return view('agregarProducto', compact('brands','promotions'));
   }
 

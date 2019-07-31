@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-  <div class="container">
+  <div class="container" style="margin-top:50px;">
     <form class="" action="/agregarPromocion" method="post">
       @csrf
       <div class="row">

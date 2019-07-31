@@ -9,6 +9,7 @@
           <th>Usuario</th>
           <th>E-mail</th>
           <th>Tipo de usuario</th>
+          <th>Estado</th>
           <th>Editar</th>
         </tr>
       </thead>
@@ -39,14 +40,13 @@
               </form>
             @endif
             </td>
-          </tr>
-          <tr>
+            <td>
             <form class="" action="/editarPerfil/{{$user->id}}" method="get" enctype="mutlipart/form-data">
               @csrf
               <button>Editar Perfil</button>
             </form>
+            </td>
           </tr>
-
         @empty
           <tr>
             <td>-</td>

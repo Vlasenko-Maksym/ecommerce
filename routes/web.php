@@ -32,5 +32,5 @@ Route::middleware(['auth', 'role'])->group(function (){
   Route::get('/editarPerfil/{id}', 'UserController@edit');
   Route::post('/editarUsuarios/{id}', 'UserController@restore');
   Route::delete('/editarUsuarios/{id}', 'UserController@destroy');
-  Route::patch('/editarUsuarios')
+  Route::patch('/editarUsuarios', 'UserController@update');
 });

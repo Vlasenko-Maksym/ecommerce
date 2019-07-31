@@ -48,7 +48,7 @@
         <div class="col-md-4 offset-md-4">
           <select class="form-control" name="brandId" id="brandId" placeholder="Seleccione marca...">
             @forelse ($brands as $brand)
-            <option value="{{$brands->id}}">{{$brands->name}}</option>
+            <option value="{{$brand->id}}">{{$brand->name}}</option>
             @empty
             <option>No hay marcas disponibles</option>
             @endforelse

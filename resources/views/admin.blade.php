@@ -5,16 +5,16 @@
 <h1>ADMIN BACKOFFICE</h1>
 
 <p>
-  <a href="/agregarMarca">Editar marcas</a>
+  <a href="/agregarMarca">Agregar marcas</a>
 </p>
 <p>
-  <a href="/agregarProducto">Editar productos</a>
+  <a href="/agregarProducto">Agregar productos</a>
 </p>
 <p>
-  <a href="/agregarPromocion">Editar Promociones</a>
+  <a href="/agregarPromocion">Agregar Promociones</a>
 </p>
 <p>
-  <a href="/editarUsuarios">Editar usuarios</a>
+  <a href="/editarUsuarios">Agregar usuarios</a>
 </p>
 
 @endsection

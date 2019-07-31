@@ -58,10 +58,10 @@
             <div class="card card-body mycard">
               @if (auth()->check() && auth()->user()->isAdmin())
                 <div class="container-admin">
-                  <a class="link-admin" href="/EditarProducto">Productos</a>
-                  <a class="link-admin" href="/EditarMarca">Marcas</a>
-                  <a class="link-admin" href="/EditarPromocion">Promociones</a>
-                  <a class="link-admin" href="/EditarUsuario">Usuarios</a>
+                  <a class="link-admin" href="/agregarProducto">Productos</a>
+                  <a class="link-admin" href="/agregarMarca">Marcas</a>
+                  <a class="link-admin" href="/agregarPromocion">Promociones</a>
+                  <a class="link-admin" href="/EditarUsuarios">Usuarios</a>
                 </div>
               @else
                 @foreach ($brands as $brand)
