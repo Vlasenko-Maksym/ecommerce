@@ -14,7 +14,8 @@ class PromotionController extends Controller
      */
     public function index()
     {
-        //
+      $promotions = Promotion::withTrashed()->get();
+        return view('editarPromociones', compact('promotions'));
     }
 
     /**
@@ -86,8 +87,16 @@ class PromotionController extends Controller
      * @param  \App\Promotion  $promotion
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Promotion $promotion)
+    public function destroy($id)
     {
-        //
+        $promotion = Promotion::findOrFail($id);
+
+        $promotion->delete();
+        return back();
+    }
+
+    public function restore($id) {
+      Promotion::withTrashed()->find($id)->restore();
+      return back();
     }
 }

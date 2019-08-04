@@ -5,8 +5,7 @@ return [
         'name'  => 'Cartier',
         'logoUrl' => 'imagenes\imgmarcas\cartier.png',
         'created_at' => null,
-        'updated_at' => null,
-        'statusId' => 1
+        'updated_at' => null
  ],
     [
      'id' =>'2',
@@ -14,7 +13,6 @@ return [
      'logoUrl' => 'imagenes\imgmarcas\IWC_Schaffhausen_Logo.png',
      'created_at' => null,
      'updated_at' => null,
-     'statusId' => 1
   ],
   [
     'id' =>3,
@@ -22,7 +20,6 @@ return [
     'logoUrl' => 'imagenes\imgmarcas\Jaeger-leCoultre.png',
     'created_at' => null,
     'updated_at' => null,
-    'statusId' => 1
   ],
   [
     'id' =>4,
@@ -30,7 +27,6 @@ return [
     'logoUrl' => 'imagenes\imgmarcas\omega.png',
     'created_at' => null,
     'updated_at' => null,
-    'statusId' => 1
   ],
   [
     'id' =>5,
@@ -38,7 +34,6 @@ return [
     'logoUrl' => 'imagenes\imgmarcas\Patek.png',
     'created_at' => null,
     'updated_at' => null,
-    'statusId' => 1
   ],
   [
     'id' =>6,
@@ -46,7 +41,6 @@ return [
     'logoUrl' => 'imagenes\imgmarcas\rolex.png',
     'created_at' => null,
     'updated_at' => null,
-    'statusId' => 1
   ],
 
 ];

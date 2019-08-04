@@ -36,17 +36,32 @@
             <a class="menuLink" data-toggle="collapse" href="#collapseRegistro" role="button" aria-expanded="false" aria-controls="collapseRegistro">Hola, {{Auth::user()->name}}</a>
             <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
               @csrf
-              <button type="submit"><img class="btnMeDesk" src="imagenes\logout.png" alt=""></button>
+              <button type="submit"><img class="btnMeDesk" src="/imagenes/logout.png" alt=""></button>
             </form>
           @else
             <a class="menuLink" data-toggle="collapse" href="#collapseRegistro" role="button" aria-expanded="false" aria-controls="collapseRegistro">Login</a>
           @endif
-          <a data-toggle="collapse" href="#collapseCarro" role="button" aria-expanded="false" aria-controls="collapseCarro"><img class="btnMeDesk" src="imagenes\carro-compra3.png" alt=""></a>
+          <a href="/cart"><img class="btnMeDesk" src="/imagenes/carro-compra3.png" alt=""></a>
         </div>
         <div class="collapse mycollapse carro " id="collapseCarro" data-parent="#padre">
           <div class=" card card-body mycard">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-            consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            {{-- <h1 style="margin-top:50px;" >Resumen de compra</h1>
+              <section>
+                <article>
+                  <ul>
+                    @forelse ($carts as $item)
+                        <li>Producto: {{$item->name}} | Cantidad: {{$item->quantity}} | Precio: {{$item->price}} | Sub-total: {{$item->price * $item->quantity}} <a href="/delete/{{$item->id}}">Eliminar</a></li>
+                    @empty
+                      <p>Su carrito está vacío.</p>
+                    @endforelse
+                  </ul>
+                </article>
+                <p>Total: {{$purchaseTotal}}</p>
+              </section>
+              <form class="" action="/cartclose" method="post">
+                @csrf
+                <button type="submit"> Comprar </button>
+              </form> --}}
           </div>
         </div>
 
@@ -61,7 +76,7 @@
                   <a class="link-admin" href="/agregarProducto">Productos</a>
                   <a class="link-admin" href="/agregarMarca">Marcas</a>
                   <a class="link-admin" href="/agregarPromocion">Promociones</a>
-                  <a class="link-admin" href="/EditarUsuarios">Usuarios</a>
+                  <a class="link-admin" href="/editarUsuarios">Usuarios</a>
                 </div>
               @else
                 @foreach ($brands as $brand)
@@ -92,7 +107,13 @@
                       <li>
                         <form id="logout-form" action="{{ route('logout') }}" method="POST"> {{-- style="display: none;" Borré este atributo style de la tag form porque luego de pasar este form a laravel, este style hacía que el botón de logout se mantuviera oculto sin poder uno desloguearse. Eliminando este estilo, se puede visualizar el botón normalmente. --}}
                           @csrf
-                          <button type="submit"><img class="btnMeDesk" src="imagenes\logout.png" alt="">LOGOUT</button>
+                          <button type="submit"><img class="btnMeDesk" src="/imagenes/logout.png" alt="">LOGOUT</button>
+                        </form>
+                      </li>
+                      <li>
+                        <form id="logout-form"  action="/editarPerfil/{{Auth::user()->id}}" method="get">
+                          @csrf
+                          <button src="/imagenes/user2.png">Perfil</button>
                         </form>
                       </li>
                     </ul>
@@ -234,16 +255,16 @@
                 <nav class="menuMobile container-fluid shadow-sm bg-light">
                   <div class="contMeMo ">
                     <div class="subContMeMo">
-                      <a href="/"><img class="btnMeMo" style="width: 40px;" src="imagenes\blackfox.png" alt=""></a>
+                      <a href="/"><img class="btnMeMo" style="width: 40px;" src="/imagenes/blackfox.png" alt=""></a>
                     </div>
                     <div class="subContMeMo">
-                      <a data-toggle="collapse" href="#collapseMarcas" role="button" aria-expanded="false" aria-controls="collapseMarcas"><img class="btnMeMo" src="imagenes\clockcards2.png" alt=""></a>
+                      <a data-toggle="collapse" href="#collapseMarcas" role="button" aria-expanded="false" aria-controls="collapseMarcas"><img class="btnMeMo" src="/imagenes/clockcards2.png" alt=""></a>
                     </div>
                     <div class="subContMeMo">
-                      <a data-toggle="collapse" href="#collapseRegistro" role="button" aria-expanded="false" aria-controls="collapseRegistro"><img class="btnMeMo" src="imagenes\user2.png" alt=""></a>
+                      <a data-toggle="collapse" href="#collapseRegistro" role="button" aria-expanded="false" aria-controls="collapseRegistro"><img class="btnMeMo" src="/imagenes/user2.png" alt=""></a>
                     </div>
                     <div class="subContMeMo">
-                      <a data-toggle="collapse" href="#collapseCarro" role="button" aria-expanded="false" aria-controls="collapseCarro"><img class="btnMeMo" src="imagenes\carro-compra2.png" alt=""></a>
+                      <a href="/cart"><img class="btnMeMo" src="/imagenes/carro-compra2.png" alt=""></a>
                     </div>
                   </div>
                 </nav>

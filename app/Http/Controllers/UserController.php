@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\User;
 use App\Role;
+use Auth;
 
 class UserController extends Controller
 {
@@ -74,20 +75,18 @@ class UserController extends Controller
   */
   public function update(Request $request, $id)
   {
-    $this->validate(request(), [
-      'name' => 'required',
-      'email' => 'required|email|unique:users',
-      'password' => 'required|min:8|confirmed'
-    ]);
+    // var_dump($request);
 
+    $this->validate($request, [
+      'name' => 'required',
+      'email' => 'required',
+    ]);
+    $user = Auth::user();
     $user->name = request('name');
     $user->email = request('email');
-    $user->password = bcrypt(request('password'));
-
     $user->save();
 
     return back();
-    return redirect('/editarUsuarios');
   }
 
   /**

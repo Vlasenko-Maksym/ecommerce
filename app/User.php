@@ -43,10 +43,6 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function carts(){
-      return $this->hasMany('\App\Cart', 'userId');
-    }
-
     public function isAdmin(){
       return $this->role == self::ROLE_ADMIN;
     }
@@ -57,5 +53,10 @@ class User extends Authenticatable
         self::ROLE_ADMIN => 'admin',
         self::ROLE_CUSTOMER => 'customer',
       ];
+    }
+// Relaciones 
+
+    public function carts(){
+      return $this->hasMany('\App\Cart', 'userId');
     }
 }

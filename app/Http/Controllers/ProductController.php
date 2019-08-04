@@ -6,6 +6,7 @@ use App\Product;
 use App\Promotion;
 use App\Brand;
 use Illuminate\Http\Request;
+use App\Http\Requests\CreateProductRequest;
 
 class ProductController extends Controller
 {
@@ -38,7 +39,7 @@ class ProductController extends Controller
   * @param  \Illuminate\Http\Request  $request
   * @return \Illuminate\Http\Response
   */
-  public function store(Request $request)
+  public function store(CreateProductRequest $request)
   {
     $path = $request->file('logoUrl')->store('public/products');
     $file = basename($path);
@@ -106,7 +107,10 @@ class ProductController extends Controller
   public function category($id)
   {
     $products = Product::where('brandId', $id)->get();
-    return view('category', compact('products'));
+    $promotions = Promotion::all();
+    $brands= Brand::all();
+    // var_dump($products);
+    return view('category', compact('products','promotions','brands'));
   }
 
   public function exito(){

@@ -19,6 +19,7 @@ class CreatePromotionsTable extends Migration
             $table->string('description', 350);
             $table->decimal('percentage', 5,2);
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

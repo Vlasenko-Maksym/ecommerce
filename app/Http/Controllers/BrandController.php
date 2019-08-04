@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Brand;
-use App\Status;
 use Illuminate\Http\Request;
+use App\Http\Requests\CreateBrandRequest;
 
 class BrandController extends Controller
 {
@@ -25,8 +25,7 @@ class BrandController extends Controller
      */
     public function create()
     {
-      $statuses = Status::all();
-        return view('/agregarMarca', compact('statuses'));
+        return view('/agregarMarca');
     }
 
     /**
@@ -35,9 +34,9 @@ class BrandController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CreateBrandRequest $request)
     {
-      // no se porqué tengo a la function store() en null. Tengo que ver como solucionarlo.
+      // @dd($request);
       $path = $request->file('logoUrl')->store('public/products');
       $file = basename($path);
 
@@ -45,11 +44,9 @@ class BrandController extends Controller
 
       $newBrand->name = $request["name"];
       $newBrand->logoUrl = $file;
-      $newBrand->statusId = $request["statusId"];
       $newBrand->save();
 
       return redirect("/guardadoExitoso");
-
 
     }
 
