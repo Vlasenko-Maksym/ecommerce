@@ -141,13 +141,9 @@ class CartController extends Controller
   }
 
   public function cartHistory(){
-    // $carts = Cart::where('userId', Auth::user()->id)->where('status', 1)->groupBy('cartNumber');
-    // // var_dump($carts);
-    //
-    // // $purchaseTotal = 0;
-    // // foreach ($carts as $cartItem) {
-    // //   $purchaseTotal = $purchaseTotal +($cartItem->quantity * $cartItem->price);
-    //
-    //   return view('cartHistory', compact('carts'));
-    }
+    $carts = Cart::where('userId',Auth::user()->id)
+    ->where('status',1)->get()->groupBy('cartNumber');
+
+    return view('/cartHistory', compact('carts'));
   }
+}

@@ -3,7 +3,7 @@
 @section('content')
   <div class="row">
     <div style="margin-top:50px" class="col-md-4 offset-md-4">
-        <a href="/cartHistory/{{$user->id}}">Historial de compra</a>
+        <a href="/cartHistory">Historial de compra</a>
     </div>
   </div>
   <h1>Cambie su contraseña</h1>

@@ -24,21 +24,4 @@ class Cart extends Model
     return $this->belongsToMany('\App\Product', 'productId');
   }
 
-  // public static function carts(){
-  //   if (Auth::user()) {
-  //   $carts = Cart::where('status',0)
-  //   ->where('userId', Auth::user()->id)
-  //   ->get();
-  //
-  //   $purchaseTotal = 0;
-  //   foreach ($carts as $cartItem) {
-  //     $purchaseTotal = $purchaseTotal +($cartItem->quantity * $cartItem->price);};
-  //
-  //     $vac = compact('carts','purchaseTotal');
-  //     return $vac;}
-  //     }
-  //     else {
-  //       $carts=[];
-  //
-  //     }
     }

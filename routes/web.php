@@ -44,7 +44,7 @@ Route::middleware(['auth'])->group(function(){
   Route::post('/cart', 'CartController@store'); //Guardamos productos en tabla cart.
   Route::get('/deleteCart/{id}', 'CartController@destroy'); //Borramos productos del carrito.
   Route::get('/cart', 'CartController@index'); //Mostramos el carrito abierto.
-  Route::get('/cartHistory', 'cartController@cartHistory');
+  Route::get('/cartHistory', 'CartController@cartHistory');
   Route::get('/paymentFlow', 'CartController@closeCart');
   Route::get('/purchaseSuccess', 'CartController@purchaseSuccess');
 });

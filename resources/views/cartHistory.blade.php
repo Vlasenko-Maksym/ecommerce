@@ -1,42 +1,51 @@
 @extends('layouts.app')
 
 @section('content')
-  <h2>Historial de compra</h2>
-
-@forelse ($carts as $cart)
-  <div class="container">
-    <table class="table table-condensed">
-      <caption>{{$cart[0]->cartNumber}}</caption>
-      <thead>
-        <tr>
-          <th>Producto</th>
-          <th>Cantidad</th>
-          <th>Estado</th>
-          <th>Precio unitario</th>
-          <th>Subtotal</th>
-          <th>Total</th>
-        </tr>
-      </thead>
-      <tfoot>
+@php
+$total=0;
+@endphp
+  <h1 style="margin-top:50px">Mis carritos</h1>
+  @forelse ($carts as $cart)
+    <div class="container">
+      <table class="table table-condensed">
+        <thead>
           <tr>
-            <td colspan="5">Total</td>
-            <td>{{118}}</td>
+            <th colspan="5" scope="colgroup">Orden de compra #: {{$cart[0]->cartNumber}}</th>
+          </tr>
+          <tr>
+            <th>Producto</th>
+            <th>Cantidad</th>
+            <th>Estado</th>
+            <th>Precio unitario</th>
+            <th>Total</th>
+          </tr>
+        </thead>
+        <tfoot>
+          <tr>
+            <td colspan="4">Total</td>
+            <td>
+              {{1}}
+            </td>
           </tr>
         </tfoot>
-      <tbody>
         @foreach ($cart as $item)
           <tr>
-            <td>{{$item->cartNumber}}</td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
+            <td>{{$item->name}}</td>
+            <td>{{$item->quantity}}</td>
+            <td>@if ($item->status == 1)
+              {{"Pagado"}}
+            @endif</td>
+            <td>{{$item->price}}</td>
+            <td>{{$item->price * $item->quantity}}</td>
           </tr>
         @endforeach
-@empty
+      @empty
+        <p>No tiene historial de carritos</p>
+      </table>
+    </div>
+    <br>
+  @endforelse
 
-@endforelse
+
 
 @endsection

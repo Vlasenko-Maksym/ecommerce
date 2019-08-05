@@ -45,23 +45,6 @@
         </div>
         <div class="collapse mycollapse carro " id="collapseCarro" data-parent="#padre">
           <div class=" card card-body mycard">
-            {{-- <h1 style="margin-top:50px;" >Resumen de compra</h1>
-              <section>
-                <article>
-                  <ul>
-                    @forelse ($carts as $item)
-                        <li>Producto: {{$item->name}} | Cantidad: {{$item->quantity}} | Precio: {{$item->price}} | Sub-total: {{$item->price * $item->quantity}} <a href="/delete/{{$item->id}}">Eliminar</a></li>
-                    @empty
-                      <p>Su carrito está vacío.</p>
-                    @endforelse
-                  </ul>
-                </article>
-                <p>Total: {{$purchaseTotal}}</p>
-              </section>
-              <form class="" action="/cartclose" method="post">
-                @csrf
-                <button type="submit"> Comprar </button>
-              </form> --}}
           </div>
         </div>
 
@@ -88,7 +71,7 @@
 
         </div>
         <!-- BOTON REGISTRO -->
-        <div class="<?php if(empty($errores1) && empty($errores2)) {echo "collapse ";} ?>mycollapse" id="collapseRegistro" data-parent="#padre">
+        <div class="{{ $errors->has('') ? '' : 'collapse' }} mycollapse" id="collapseRegistro" data-parent="#padre">
           <!--modificacion para que abra automaticamente si hay errores-->
           <div class="card ">
             <div class="card-body">
@@ -126,18 +109,6 @@
                   <div class="row login">
                     <div class="col-xl-6 col-md-6 col-sm-12 colRegistro">
                       <h2>Iniciar sesión</h2>
-                      <!--errores-->
-                      <div class="conterrores">
-                        <ul>
-                          <?php
-                          $erroresLogin = [];
-                          $erroresRegistro = [];
-                          foreach ($erroresLogin as $key => $value) {  ?>
-                            <li><?php echo $value; ?></li>
-                            <?php } ?>
-                          </ul>
-                        </div>
-
                         <div class="social-container">
                           <div class="mybutton">
                             <button class="fButton" type="button">f</button>
@@ -173,15 +144,6 @@
                           </div>
                           <div class="col-xl-6 col-md-6 col-sm-12 colRegistro">
                             <h2>Registrarse</h2>
-                            <!--errores -->
-                            <div class="conterrores">
-                              <ul>
-                                <?php foreach ($erroresRegistro as $key => $value) {  ?>
-                                  <li><?php echo $value; ?></li>
-                                  <?php } ?>
-                                </ul>
-                              </div>
-                              <!--errores -->
                               <div class="social-container">
                                 <div class="mybutton">
                                   <button class="fButton" type="button">f</button>

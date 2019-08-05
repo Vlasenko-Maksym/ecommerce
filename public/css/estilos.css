@@ -20,22 +20,142 @@ body{
 }
 
 /* Body */
-.main-banner{
-  height: auto;
-  max-width: 100%;
-  width:100%;
-  margin-top: 38px;
+
+video{
+  width: 100%;
 }
+
+h2,p{
+  text-shadow: 2px 2px 2px #333;
+}
+
 .container{
   background-color: rgba(0, 0, 0, 0.1);
   margin:0 auto;
   max-width:none;
 }
-.container.row{
+
+/* container de productos bootstrap */
+@media (min-width: 768px) {
+
+    /* show 3 items */
+    .carousel-inner .active,
+    .carousel-inner .active + .carousel-item,
+    .carousel-inner .active + .carousel-item + .carousel-item {
+        display: block;
+    }
+
+    .carousel-inner .carousel-item.active:not(.carousel-item-right):not(.carousel-item-left),
+    .carousel-inner .carousel-item.active:not(.carousel-item-right):not(.carousel-item-left) + .carousel-item,
+    .carousel-inner .carousel-item.active:not(.carousel-item-right):not(.carousel-item-left) + .carousel-item + .carousel-item {
+        transition: none;
+        margin-right: initial;
+    }
+
+    .carousel-inner .carousel-item-next,
+    .carousel-inner .carousel-item-prev {
+      position: relative;
+      transform: translate3d(0, 0, 0);
+    }
+
+    .carousel-inner .active.carousel-item + .carousel-item + .carousel-item + .carousel-item {
+        position: absolute;
+        top: 0;
+        right: -33.3333%;
+        z-index: -1;
+        display: block;
+        visibility: visible;
+    }
+
+    /* left or forward direction */
+    .active.carousel-item-left + .carousel-item-next.carousel-item-left,
+    .carousel-item-next.carousel-item-left + .carousel-item,
+    .carousel-item-next.carousel-item-left + .carousel-item + .carousel-item,
+    .carousel-item-next.carousel-item-left + .carousel-item + .carousel-item + .carousel-item {
+        position: relative;
+        transform: translate3d(-100%, 0, 0);
+        visibility: visible;
+    }
+
+    /* farthest right hidden item must be abso position for animations */
+    .carousel-inner .carousel-item-prev.carousel-item-right {
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: -1;
+        display: block;
+        visibility: visible;
+    }
+
+    /* right or prev direction */
+    .active.carousel-item-right + .carousel-item-prev.carousel-item-right,
+    .carousel-item-prev.carousel-item-right + .carousel-item,
+    .carousel-item-prev.carousel-item-right + .carousel-item + .carousel-item,
+    .carousel-item-prev.carousel-item-right + .carousel-item + .carousel-item + .carousel-item {
+        position: relative;
+        transform: translate3d(100%, 0, 0);
+        visibility: visible;
+        display: block;
+        visibility: visible;
+    }
+  }
+
+
+
+
+
+.container-fluid{
+  background-color: #6F7793;
+  background-size:cover;
+}
+
+/* CONTENEDOR DE PALABRAS */
+.container-words{
+  background-image:url(../imagenes/fondoReloj3.jpg);
+  background-size:cover;
+}
+
+.container-palabras{
+font-family: Georgia, serif;
+height: 600px;
+font-size: 40px;
+font-weight: 400;
+text-align: center;
+margin-top:3%;
+text-shadow: 2px 2px 2px #333
+
+}
+
+h2{
+padding-top:8%;
+padding-bottom: 8%;
+color: #EAEAEA;
+}
+h4{
+  padding-left: 3%;
+  padding-right: 3%;
+  color: #F5F5F5;
+}
+
+.container-team{
+  background-image: url(../imagenes/fondoEquipo.jpg);
+  background-size: cover;
+}
+
+.container-equipo{
+font-family: Georgia, serif;
+height: 600px;
+font-size: 40px;
+font-weight: 400;
+text-align: center;
+margin-top:3%;
+}
+
+/* .container.row{
   margin: 0 auto;
   display: flex;
   flex-direction: column-reverse;
-}
+} */
 /* CSS de form de agregado de productos */
 
 .addproduct .row+.row {

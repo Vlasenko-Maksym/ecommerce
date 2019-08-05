@@ -2,63 +2,86 @@
 
 
 @section('content')
-
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.x/css/bootstrap.min.css">
   <div class="main-container">
 
     <section class="main-banner">
-      <!-- banner 1 -->
-      <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
-        <div class="carousel-inner">
-          <div class="carousel-item active">
-            <img src="imagenes/patekbanner.jpg" class="d-block w-100" alt="...">
-          </div>
-          <div class="carousel-item">
-            <img src="imagenes/rolexbanner.jpg" class="d-block w-100" alt="...">
-          </div>
-          <div class="carousel-item">
-            <img src="imagenes/iwcbanner.jpg" class="d-block w-100" alt="...">
-          </div>
+      <!-- video presentacion -->
+      <video src="videos/rolex.mp4" autoplay loop muted>
+
+      </video>
+    </section>
+
+      <!-- carosuel de productos home -->
+      <div class="container-fluid">
+        <div id="carouselExample" class="carousel slide" data-ride="carousel" data-interval="9000">
+            <div class="carousel-inner row w-10 mxauto" role="listbox">
+                <div class="carousel-item col-md-4 active">
+
+                <img class="img-fluid mx-auto d-bloc" src="/imagenes/relojes/OMEGA/speedmaster.png" alt="slide 1">
+                <a href="#"></a>
+                </div>
+                <div class="carousel-item col-md-4">
+                    <img class="img-fluid mx-auto d-block" src="/imagenes/relojes/ROLEX/DAY-DATE.PNG" alt="slide 2">
+                    <a href="#"></a>
+                </div>
+                <div class="carousel-item col-md-4">
+                    <img class="img-fluid mx-auto d-block" src="/imagenes/relojes/ROLEX/DAY-JUST.PNG" alt="slide 3">
+                    <a href="#"></a>
+                </div>
+                <div class="carousel-item col-md-4">
+                    <img class="img-fluid mx-auto d-block" src="/imagenes/relojes/ROLEX/DAY-JUSTM.PNG" alt="slide 4">
+                    <a href="#"></a>
+                </div>
+                <div class="carousel-item col-md-4">
+                    <img class="img-fluid mx-auto d-block" src="/imagenes/relojes/ROLEX/SEA-DWELLER.PNG" alt="slide 5">
+                    <a href="#"></a>
+                </div>
+                <div class="carousel-item col-md-4">
+                    <img class="img-fluid mx-auto d-block" src="/imagenes/relojes/ROLEX/SHADOW.PNG" alt="slide 6">
+                    <a href="#"></a>
+                </div>
+                <div class="carousel-item col-md-4">
+                    <img class="img-fluid mx-auto d-block" src="/imagenes/relojes/OMEGA/globemaster.png" alt="slide 7">
+                    <a href="#"></a>
+                </div>
+                <div class="carousel-item col-md-4">
+                    <img class="img-fluid mx-auto d-block" src="/imagenes/relojes/OMEGA/ladymatic.png" alt="slide 7">
+                    <a href="#"></a>
+                </div>
+                <div class="carousel-item col-md-4">
+                    <img class="img-fluid mx-auto d-block" src="/imagenes/relojes/OMEGA/seamaster.png" alt="slide 7">
+                    <a href="#"></a>
+                </div>
+                <div class="carousel-item col-md-4">
+                    <img class="img-fluid mx-auto d-block" src="/imagenes/relojes/OMEGA/specialities.png" alt="slide 7">
+                    <a href="#"></a>
+                </div>
+            </div>
+            <a class="carousel-control-prev" href="#carouselExample" role="button" data-slide="prev">
+                <i class="fa fa-chevron-left fa-lg text-muted"></i>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next text-faded" href="#carouselExample" role="button" data-slide="next">
+                <i class="fa fa-chevron-right fa-lg text-muted"></i>
+                <span class="sr-only">Next</span>
+            </a>
         </div>
-        <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="sr-only">Previous</span>
-        </a>
-        <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="sr-only">Next</span>
-        </a>
-      </div>
-    </section>
-    <section class="accionables-container container">
-      <!-- links y arituclos de productos  -->
-      <div class="row">
-        <div class="col1 col-sm">
-          <div class="link prod1">
-            <a href="#">
-              <img class="destacado" src="imagenes/accionables/iwcman.jpg" alt="">
-            </a>
-          </div>
-          <div class="link prod2">
-            <a href="#">
-              <img class="destacado" src="imagenes/accionables/omegamujer.jpg" alt="">
-            </a>
-          </div>
-          <div class="link art1">
-            <a href="#">
-              <img class="destacado" src="imagenes/accionables/relojpatek.jpg" alt="">
-            </a>
-          </div>
-          <div class="link art2">
-            <a href="#">
-              <img class="destacado" src="imagenes/accionables/rolexmen.jpg" alt="">
-            </a>
-          </div>
-        </div> <!-- fin div col1-->
-        <div class="col2 col-sm">
-          <a href="#">
-            <img class="relojpromo" style="width:100%;" src="imagenes/accionables/applewatch.jpg" alt="">
-          </a>
-        </div> <!-- fin div col2-->
-      </div> <!-- fin div row-->
-    </section>
+    </div>
+
+    <section class= "container-words">
+     <div class="container-palabras">
+
+       <h2>¿POR QUÉ COMPRAR NUESTROS RELOJES?</h2>
+       <h4>Nuestra historia se remonta a principios del siglo XX. Con mas de 100 años de trayectoria encontramos el balance perfecto
+         entre calidad y diseño, haciendo que nuestros productos sean unos de los mas finos del mercado.<br> </br>
+        Estamos comprometidos a lograr que tu tiempo valga la pena, por eso al usar nuestros relojes nunca llegarás tarde a ningun lado.</h4>
+     </div>
+   </section>
+
+   <section class="container-team">
+   <div class="container-equipo">
+     <h2>EQUIPO DE TRABAJO</h2>
+   </div>
+   </section>
   @endsection
