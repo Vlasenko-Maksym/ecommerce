@@ -18,19 +18,35 @@
 Auth::routes();
 
 Route::get('/', 'HomeController@index')->name('home');
-Route::get('/brand/{id}', 'ProductController@category');
+Route::get('/brand/{id?}', 'ProductController@category');
+Route::get('/brand/{brandId}/{productId}', 'ProductController@getItem');
+Route::get('brand/all', 'ProductController@allCategories');
 
 Route::middleware(['auth', 'role'])->group(function (){
   Route::get('/agregarProducto', 'ProductController@create');
   Route::post('/agregarProducto', 'ProductController@store');
+
+  Route::get('/editarProductos', 'ProductController@edit');
+  Route::get('/editarProductos/{id}', 'ProductController@editform');
+  Route::patch('/editarProducto/{id}', 'ProductController@update');
+
+  Route::get('/eliminarProducto/{id}', 'ProductController@destroy');
+  Route::get('/habilitarProducto/{id}', 'ProductController@restore');
+
+
   Route::get('/guardadoExitoso', 'ProductController@exito');
   Route::get('/agregarPromocion', 'PromotionController@create');
   Route::post('/agregarPromocion', 'PromotionController@store');
   Route::get('editarPromociones', 'PromotionController@index');
   Route::delete('/editarPromociones/{id}', 'PromotionController@destroy');
   Route::post('/editarPromociones/{id}', 'PromotionController@restore');
+
   Route::get('/agregarMarca', 'BrandController@create');
   Route::post('/agregarMarca', 'BrandController@store');
+  Route::get('/editarMarcas', 'BrandController@edit');
+  Route::get('/eliminarMarca/{id}', 'BrandController@destroy');
+  Route::get('/habilitarMarca/{id}', 'BrandController@restore');
+
   Route::get('/editarUsuarios', 'UserController@create');
   Route::post('/editarUsuarios/{id}', 'UserController@restore');
   Route::delete('/editarUsuarios/{id}', 'UserController@destroy');

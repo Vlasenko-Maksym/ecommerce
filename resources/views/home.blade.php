@@ -81,7 +81,10 @@
 
    <section class="container-team">
    <div class="container-equipo">
-     <h2>EQUIPO DE TRABAJO</h2>
+     <h2><u> EQUIPO DE TRABAJO</u></h2>
+   </div>
+   <div id="container-fotos">
+
    </div>
    </section>
   @endsection

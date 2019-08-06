@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+  <br><br>
   <div class="container" style="margin-top:50px;">
     <form class="" action="/agregarPromocion" method="post">
       @csrf
@@ -16,6 +17,7 @@
         </div>
       </div>
       @enderror
+      <br>
       <div class="row">
         <div class="col-md-4 offset-md-4">
           <textarea class="form-control {{ $errors->has('description') ? 'is-invalid' : '' }}" id="promotion-description-input" name="description" rows="3"></textarea>
@@ -28,6 +30,7 @@
         </div>
       </div>
       @enderror
+      <br>
       <div class="row">
         <div class="col-md-4 offset-md-4">
           <input type="number" class="form-control {{ $errors->has('number') ? 'is-invalid' : '' }}" id="percentage" name="percentage" placeholder="Ingrese el porcentaje de descuento">
@@ -40,12 +43,16 @@
         </div>
       </div>
       @enderror
+      <br>
       <div class="row">
         <div class="col-md-4 offset-md-4 form-footer-input">
           <button type="submit" class="btn btn-primary custom-btn">Guardar promoción</button>
         </div>
       </div>
     </form>
+    <br>
+    <br>
+
     {{-- <h2>Promociones disponibles</h2>
     <p>Estas son todas las promociones disponibles al momento</p>
     <table class="table table-condensed">

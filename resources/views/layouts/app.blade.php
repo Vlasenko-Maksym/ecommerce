@@ -300,7 +300,7 @@
                                       <!--Copyright-->
                                       <p class="text-center text-md-left">© 2019 Copyright:
                                         <a href="#">
-                                          <strong> Maksym Enterprises</strong>
+                                          <strong> </strong>
                                         </a>
                                       </p>
                                     </div>

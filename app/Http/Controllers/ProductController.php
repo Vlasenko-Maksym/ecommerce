@@ -7,6 +7,7 @@ use App\Promotion;
 use App\Brand;
 use Illuminate\Http\Request;
 use App\Http\Requests\CreateProductRequest;
+use App\Http\Requests\editProductRequest;
 
 class ProductController extends Controller
 {
@@ -73,24 +74,33 @@ class ProductController extends Controller
   /**
   * Show the form for editing the specified resource.
   *
-  * @param  \App\Product  $product
-  * @return \Illuminate\Http\Response
-  */
-  public function edit(Product $product)
-  {
-    //
-  }
 
-  /**
+
   * Update the specified resource in storage.
   *
   * @param  \Illuminate\Http\Request  $request
   * @param  \App\Product  $product
   * @return \Illuminate\Http\Response
   */
-  public function update(Request $request, Product $product)
+  public function update(editProductRequest $request, $id)
   {
-    //
+    $path = $request->file('logoUrl')->store('public/products');
+    $file = basename($path);
+    $products=Product::all();
+    $product=Product::find($id);
+
+
+    $product->name = $request["name"];
+    $product->price = $request["price"];
+    $product->category = $request["category"];
+    $product->stock = $request["stock"];
+    $product->description = $request["description"];
+    $product->promotionId = $request["promotionId"];
+    $product->brandId = $request["brandId"];
+    $product->logoUrl = $file;
+
+    $product->save();
+    return view('editarProductos', compact('products'));
   }
 
   /**
@@ -99,21 +109,79 @@ class ProductController extends Controller
   * @param  \App\Product  $product
   * @return \Illuminate\Http\Response
   */
-  public function destroy(Product $product)
+  public function destroy(Product $product, $id)
   {
-    //
+
+    $product=Product::find($id);
+    $product->delete();
+    $products=Product::withTrashed()->get();
+    return view('editarProductos', compact('products'));
   }
 
-  public function category($id)
+  public function category($id = null)
   {
+    if($id != 6){
+      $products = Product::where('brandId', $id)->get();
+      $promotions = Promotion::all();
+      $brands= Brand::all();
+      $item=Product::where('BrandId',$id)->first();
+      // dd($item);
+      return view('category', compact('products','promotions','brands','id','item'));
+    }
+    else {
+      $products = Product::all();
+      $brands = Brand::all();
+      return view('allCategories', compact('products','brands'));
+    }
+  }
+
+  public function getItem($id, $productId){
+    $item = Product::find($productId);
+    // dd($item);
     $products = Product::where('brandId', $id)->get();
-    $promotions = Promotion::all();
-    $brands= Brand::all();
-    // var_dump($products);
-    return view('category', compact('products','promotions','brands'));
+    // dd($item);
+    return view('category', compact('item','products','id'));
+
+
   }
 
   public function exito(){
     return view('guardadoExitoso');
   }
+
+  public function edit(Product $product)
+  {
+    $products=Product::withTrashed()->get();
+
+    return view('editarProductos', compact('products'));
+  }
+
+
+  public function editform($id, Product $product)
+  {
+    $product=Product::find($id);
+    $brands = Brand::all();
+    $promotions = Promotion::all();
+    return view('editarProducto', compact('product','brands','promotions'));
+  }
+  public function restore($id) {
+
+    $product=Product::withTrashed()->find($id)->restore();
+    $products=Product::withTrashed()->get();
+    return view('editarProductos', compact('products'));
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }

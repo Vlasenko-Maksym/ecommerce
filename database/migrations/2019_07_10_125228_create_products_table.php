@@ -26,6 +26,7 @@ class CreateProductsTable extends Migration
             $table->foreign('promotionId')->references('id')->on('promotions');
             $table->foreign('brandId')->references('id')->on('brands');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

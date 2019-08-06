@@ -1,8 +1,9 @@
 @extends('layouts.app')
 
 @section('content')
-  <div class="container">
-    <form class="" action="/agregarMarca" method="post" enctype="multipart/form-data" style="margin-top:50px;">
+  <br><br>
+  <div class="containerAgregarMarca">
+    <form class="" action="/agregarMarca" method="post" enctype="multipart/form-data" >
       @csrf
       <div class="row">
         <div class="col-md-4 offset-md-4">
@@ -16,6 +17,7 @@
           @enderror
         </div>
       </div>
+      <br>
       <div class="row">
         <div class="col-md-4 offset-md-4">
           <input class="{{ $errors->has('logoUrl') ? 'is-invalid' : '' }}" type="file" name="logoUrl" id="logoUrl" >
@@ -28,6 +30,7 @@
           @enderror
         </div>
       </div>
+      <br>
       <div class="row">
         <div class="col-md-4 offset-md-4 form-footer-input">
           <button type="submit" class="btn btn-primary custom-btn">Guardar marca</button>
@@ -35,4 +38,5 @@
       </div>
     </form>
   </div>
+  <br><br>
 @endsection

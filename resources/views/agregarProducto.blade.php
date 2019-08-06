@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+  <br><br>
   <div class="container-fluid addproduct-form-container">
     <form class="addproduct" action="/agregarProducto" method="post" enctype="multipart/form-data" style="margin-top:50px;">
       @csrf
@@ -123,6 +124,6 @@
     </form>
   </div>
 
-  
+
   {{-- /*si no tengo marcas cargas, me tira errores si quiero guardar un producto, como lo soluciono?? El problema es que no puedo guardar un producto si no tengo creadas marcas y promociones.*/ --}}
 @endsection

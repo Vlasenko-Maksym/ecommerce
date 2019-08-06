@@ -18,6 +18,7 @@ class CreateBrandsTable extends Migration
             $table->bigIncrements('id');
             $table->string('name', 50);
             $table->string('logoUrl', 512);
+            $table->string('wallpaper', 512);
             $table->timestamps();
             $table->softDeletes();
         });

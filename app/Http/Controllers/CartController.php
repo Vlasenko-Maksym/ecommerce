@@ -48,7 +48,7 @@ class CartController extends Controller
   */
   public function store(AddToCartRequest $request)
   {
-
+    // dd($request);
     $product = Product::find($request->id);
 
     $cartExists = Cart::where('productId', $request->id)->where('userId',Auth::user()->id)->where('status','0')->first();
