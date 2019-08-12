@@ -453,7 +453,11 @@ h6{
           text-align: justify;
         }
         .imguserlog{
-          width: 200px;
+              width:230px;
+              height:230px;
+              border-radius:160px;
+
+
         }
 
         .btnMeDesk{

@@ -2,7 +2,7 @@
 
 @section('content')
 <br><br>
-  <div class="containerCategory" style="background-image:url('imagenes/wallpaper/{{$brands[$id]->wallpaper}}')">
+  <div class="containerCategory" style="background-image:url('/{{$brands[$id]->wallpaper}}')">
     <div class="row justify-content-center">
       <div class="nBrand">
         {{-- {{dd($brands[$id-1]->name)}} --}}

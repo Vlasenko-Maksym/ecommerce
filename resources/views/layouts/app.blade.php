@@ -78,7 +78,7 @@
               @if (Auth::user())
                 <div class="row">
                   <div class="col-xs-12  col-md-6  usercard">
-                    <img class="imguserlog" src="imguser/{{Auth::user()->email}}.'.jpg'" alt="">
+                    <img class="imguserlog" src="/storage/imagenes/imguser/{{Auth::user()->avatar}}" alt="">
                   </div>
                   <div class="col-xs-12  col-md-6  usercard2">
                     <ul>
