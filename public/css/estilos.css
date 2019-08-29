@@ -15,7 +15,6 @@ a{
 body{
   font-family: "Poiret one";
   font-size: 25px;
-  font-weight: bold;
   padding: 0;
 }
 
@@ -599,3 +598,116 @@ h6{
         .containerAgregarMarca{
           margin-top: 50px;
         }
+
+
+        /* Estilos allCategories */
+
+        #imgBrandAllCategories{
+
+          opacity: 0.5;
+        }
+        .imgProductAllCategories{
+          width: 10%;
+        }
+        .allCategoriesProducts{
+          margin-left: 10px;
+          font-style: none;
+        }
+        .vermas{
+          height: 35px;
+          background-color: blue;
+        }
+        .precioAllCategories{
+            height: 35px;
+        }
+        .card{
+          border-radius: 25px;
+        }
+
+      /*tarjetas nuevas*/
+.containerBuscador{
+
+}
+.barraBuscador{
+  padding:6px 15px;color:white;font-weight:bold;background: #8e9eab;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #eef2f3, #8e9eab);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #eef2f3, #8e9eab); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+border-radius: 0px 0px 30px 0px;
+-moz-border-radius: 0px 0px 30px 0px;
+-webkit-border-radius: 0px 0px 30px 0px;
+border: 0px solid #000000;
+}
+.noSeEncuentranResultados{
+  color:#07A0C3;text-align:center;width:0px;display:none;margin:60px auto 500px auto;
+}
+.cardnew{
+  background: #2193b0;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #6dd5ed, #2193b0);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #6dd5ed, #2193b0); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  border-radius: 30px 30px 30px 30px;
+   -moz-border-radius: 30px 30px 30px 30px;
+   -webkit-border-radius: 30px 30px 30px 30px;
+   border: 0px solid #000000;
+  margin:15px 3px;
+   text-align: center;
+   padding:0;
+   -webkit-box-shadow: 0px 4px 5px 0px rgba(0,0,0,0.53);
+  -moz-box-shadow: 0px 4px 5px 0px rgba(0,0,0,0.53);
+  box-shadow: 0px 4px 5px 0px rgba(0,0,0,0.53);
+}
+  .nameCardProd{
+    border-radius: 30px 0px 0px 0px;
+-moz-border-radius: 30px 0px 0px 0px;
+-webkit-border-radius: 30px 0px 0px 0px;
+border: 0px solid #000000;
+background-color:white;
+padding:26px 15px 10px 15px;
+color:#07A0C3;
+font-weight: bold;
+
+  }
+  .imgCardProd{
+    width: 50%;
+    margin:15px 0;
+    padding:0;
+
+  }
+  .verMasCardProd{
+    background: #07A0C3;
+
+    padding:0;
+    border-radius: 30px 0px 30px 0px;
+-moz-border-radius: 30px 0px 30px 0px;
+-webkit-border-radius: 30px 0px 30px 0px;
+border: 0px solid #000000;
+}
+.verMasCardProd a{
+  color:white;
+  font-weight: bold;
+  text-decoration:none;
+  font-size: 15px;
+}
+.verMasCardProd a:hover{
+  font-size: 17px;
+}
+
+  .precioCardProd{
+padding:10px 15px;
+background-color: white;
+font-size: 15px;
+font-weight: bold;
+  }
+  .precioCardVerProd{
+    padding: 0;
+    border-radius: 0px 0px 30px 30px;
+-moz-border-radius: 0px 0px 30px 30px;
+-webkit-border-radius: 0px 0px 30px 30px;
+border: 0px solid #000000;
+  }
+  .brandImgProd{
+
+    padding:10px 20px;
+  }
+  .checkBrand{
+    margin:0 1px;
+  }
