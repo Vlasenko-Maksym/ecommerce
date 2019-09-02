@@ -514,10 +514,13 @@ h6{
         .containerCategory{
           margin-top: 40px;
           height: 90vh;
+
         }
         .rModelo{
           align-items:center;
           justify-content:space-between;
+          margin:0;
+
         }
         .imProd{
           margin-left: 200px;
@@ -530,24 +533,37 @@ h6{
         }
         .nBrand{
           display: block;
+
         }
         .nBrand h1{
-          color: rgb(8, 78, 78);
+          font-size: 40px;
+          margin:10px;
+          font-weight: bold;
+
+}
         }
         .descProd h3{
           color: khaki;
         }
         .btnMenuMod{
           color: aqua;
+          margin:0 1px;
         }
         .filProd{
           justify-content:center;
+          margin:0;
         }
         .colProd{
           justify-content:center;
+          background-color:rgba(0,0, 0, 0.3);
+          color: white;
+          margin-bottom:35px;
+          -moz-border-radius: 0px 0px 30px 0px;
+-webkit-border-radius: 0px 0px 30px 0px;
         }
         .menuMod{
           float:left;
+          margin:3px 0;
         }
 
 
@@ -570,6 +586,10 @@ h6{
         }
         .descProd{
           width: 90%;
+          padding: 30px;
+          margin-top: 20px;
+          background-color:rgba(0,0, 0, 0.3);
+          color: white;
         }
 
 

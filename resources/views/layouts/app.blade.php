@@ -53,7 +53,7 @@
           {{-- @include('../nav') --}}
 
           <div class="card card-body mycard">
-            <div class="card card-body mycard">
+            <div class="card card-body mycard" style="border:0;border-radius:">
               @if (auth()->check() && auth()->user()->isAdmin())
                 <div class="container-admin">
                   <a class="link-admin" href="/agregarProducto">Productos</a>
