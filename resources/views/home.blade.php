@@ -79,12 +79,5 @@
      </div>
    </section>
 
-   <section class="container-team">
-   <div class="container-equipo">
-     <h2><u> EQUIPO DE TRABAJO</u></h2>
-   </div>
-   <div id="container-fotos">
 
-   </div>
-   </section>
   @endsection
